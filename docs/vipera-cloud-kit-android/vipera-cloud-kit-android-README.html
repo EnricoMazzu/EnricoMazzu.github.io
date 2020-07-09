@@ -1,0 +1,641 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Vipera Cloud Kit (VCK) modules for Android · Vipera Cloud Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Available Modues"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Vipera Cloud Kit (VCK) modules for Android · Vipera Cloud Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="## Available Modues"/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/fabrick-lite.svg" alt="Vipera Cloud Documentation"/><h2 class="headerTitleWithLogo">Vipera Cloud Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive siteNavItemActive"><a href="/docs/vipera-cloud-kit-android/vipera-cloud-kit-android-README" target="_self">Cloud Kit</a></li><li class=""><a href="/docs/mc-idcm-kit-android/mc-idcm-kit-android-README" target="_self">IDCM Kit</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Cloud Kit</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Cloud Kit</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/vipera-cloud-kit-android/vipera-cloud-kit-android-README">Core</a></li><li class="navListItem"><a class="navItem" href="/docs/vipera-cloud-kit-android/cloudkit_crypto/cloud-kit-crypto_README">Crypto</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Vipera Cloud Kit (VCK) modules for Android</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="available-modues"></a><a href="#available-modues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Available Modues</h2>
+<p>Modules:</p>
+<ul>
+<li>cloudkit-core</li>
+<li>cloudkit-common</li>
+<li><a href="/docs/vipera-cloud-kit-android/cloudkit_crypto/cloud-kit-crypto_README">cloudkit-crypto</a></li>
+<li>cloudkit-cryptobox (WIP)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="setup-environment"></a><a href="#setup-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setup Environment</h2>
+<p>All vipera artifact are on vipera /fibrick maven repository, protected with authentication.</p>
+<h3><a class="anchor" aria-hidden="true" id="access-to-maven-repo-nexus"></a><a href="#access-to-maven-repo-nexus" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Access to Maven Repo (Nexus)</h3>
+<p>At project level:</p>
+<pre><code class="hljs css language-groovy">...
+
+<span class="hljs-keyword">def</span> cred =  {
+        username YOUR_USERNAME
+        password YOUR_PASSWORD
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        ...
+        maven {
+            credentials cred
+            url(VIPERA_MAVEN_URL)
+        }
+        mavenLocal()
+
+    }
+
+}
+</code></pre>
+<p>If you want, you can use this script to read your maven profile settings file</p>
+<p><strong><em>vipera_repo.gradle</em></strong></p>
+<pre><code class="hljs css language-groovy"><span class="hljs-keyword">def</span> VIPERA_MAVEN_URL = <span class="hljs-string">"https://nexus.vipera.com/repository/maven-public"</span>
+<span class="hljs-keyword">def</span> VIPERA_MAVEN_SERVER_ID = <span class="hljs-string">"nexus.public"</span>
+
+<span class="hljs-keyword">def</span> VIPERA_MAVEN_RELEASES_URL = <span class="hljs-string">"https://nexus.vipera.com/repository/maven-releases"</span>
+<span class="hljs-keyword">def</span> VIPERA_MAVEN_SNAPSHOT_URL = <span class="hljs-string">"https://nexus.vipera.com/repository/maven-snapshots"</span>
+
+<span class="hljs-comment">//NEXUS PUBLIC</span>
+ext.VIPERA_MAVEN_URL = VIPERA_MAVEN_URL
+ext.VIPERA_MAVEN_SERVER_ID = VIPERA_MAVEN_SERVER_ID
+ext.VIPERA_MAVEN_SNAPSHOT_URL = VIPERA_MAVEN_SNAPSHOT_URL
+ext.VIPERA_MAVEN_RELEASES_URL = VIPERA_MAVEN_RELEASES_URL
+
+<span class="hljs-keyword">def</span> getMavenSettingsCredentials = {
+    String userHome = System.getProperty( <span class="hljs-string">"user.home"</span> );
+    File mavenSettings = <span class="hljs-keyword">new</span> File(userHome, <span class="hljs-string">".m2/settings.xml"</span>)
+    <span class="hljs-keyword">def</span> xmlSlurper = <span class="hljs-keyword">new</span> XmlSlurper()
+    <span class="hljs-keyword">def</span> output = xmlSlurper.parse(mavenSettings)
+    <span class="hljs-keyword">return</span> output.<span class="hljs-string">"servers"</span>.<span class="hljs-string">"server"</span>
+}
+
+<span class="hljs-keyword">def</span> getCredentials = { targetId -&gt;
+    <span class="hljs-keyword">def</span> entries = getMavenSettingsCredentials()
+    <span class="hljs-keyword">for</span> (entry <span class="hljs-keyword">in</span> entries) {
+        <span class="hljs-keyword">if</span> ( entry.<span class="hljs-string">"id"</span>.text() == targetId ) {
+            <span class="hljs-keyword">return</span> [<span class="hljs-string">username:</span> entry.username.text(), <span class="hljs-string">password:</span> entry.password.text()]
+        }
+    }
+}
+
+<span class="hljs-keyword">def</span> getViperaRepoCredentials = {
+    <span class="hljs-keyword">return</span> getCredentials(VIPERA_MAVEN_SERVER_ID)
+}
+
+<span class="hljs-keyword">def</span> viperaRepoCredentials = {
+    <span class="hljs-keyword">def</span> cred= getViperaRepoCredentials()
+    <span class="hljs-keyword">return</span> {
+        username cred[<span class="hljs-string">'username'</span>]
+        password cred[<span class="hljs-string">'password'</span>]
+    }
+}
+
+ext.getCredentials = getCredentials
+ext.getViperaRepoCredentials = getViperaRepoCredentials
+ext.viperaRepoCredentials = viperaRepoCredentials
+
+</code></pre>
+<p>And modify your root gradle:</p>
+<pre><code class="hljs css language-groovy">...
+apply <span class="hljs-string">from:</span><span class="hljs-string">'./vipera_repo.gradle'</span>
+<span class="hljs-keyword">def</span> cred = viperaRepoCredentials()
+...
+
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="getting-started"></a><a href="#getting-started" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting Started</h2>
+<h3><a class="anchor" aria-hidden="true" id="configuration"></a><a href="#configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h3>
+<p>In order to create a configuration object you can use the VCKConfiguration.Builder class. This object provide a set of commons configurations (via set methods on Builder instance), but allows to specify extra configuration (using addConfigValue) fields that various components can read.</p>
+<p>This is an example of configuration</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VCKConfigurationHelper</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> VCKConfiguration <span class="hljs-title">getDefault</span><span class="hljs-params">()</span></span>{
+        PinningCheck pinningCheck = getPinningCheckConfig();
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> VCKConfiguration.Builder()
+                .setBaseUrl(BuildConfig.baseUrl) <span class="hljs-comment">// base Url to use</span>
+                .setHttpTimeout(<span class="hljs-number">60</span>*<span class="hljs-number">1000</span>) <span class="hljs-comment">// timeout in millis</span>
+                .setHaltIfProxySet(<span class="hljs-keyword">false</span>) <span class="hljs-comment">// enable/disable Proxy check</span>
+                .setHaltIfVPNSet(<span class="hljs-keyword">false</span>) <span class="hljs-comment">// enable/disable VPN check</span>
+                .setEnableRequestResponseLogging(<span class="hljs-keyword">true</span>) <span class="hljs-comment">// enable logging of request /response</span>
+                .setDebugPrintSSLCertificateData(<span class="hljs-keyword">true</span>) <span class="hljs-comment">// enalble print of debug</span>
+                .setPinningEnabled(<span class="hljs-keyword">false</span>) <span class="hljs-comment">//  enable/disable certificate pinning</span>
+                .setPinningCheck(pinningCheck) <span class="hljs-comment">// set the pinning check instance</span>
+                .setDisableSslCertificate(<span class="hljs-keyword">false</span>) <span class="hljs-comment">//disable ssl certificate check (at ssl context level)</span>
+                <span class="hljs-comment">//OAuth2 ext</span>
+                .addConfigValue(OAuth2Configuration.CLIENT_ID,BuildConfig.clientId)
+                .addConfigValue(OAuth2Configuration.AUTH_URL,BuildConfig.authUrl)
+                .addConfigValue(OAuth2Configuration.TOKEN_URL,BuildConfig.tokenUrl)
+                .addConfigValue(OAuth2Configuration.TOKEN_REVOKE_URL,BuildConfig.tokenRevokeUrl)
+                .addConfigValue(OAuth2Configuration.INTROSPECT_URL,BuildConfig.introspectUrl)
+                <span class="hljs-comment">//Other extension fields</span>
+                <span class="hljs-comment">//.addConfigValue(...,...)</span>
+                .build();
+    }
+}
+</code></pre>
+<p>VCKClient automatically handle the device registration / update in Vipera Cloud backend.</p>
+<p>You can customize the Device Service path with</p>
+<pre><code class="hljs css language-java"> .addConfigValue(DeviceApiClientImpl.DEVICE_MANAGER_PATH,<span class="hljs-string">"http://your/custom/url"</span>)
+</code></pre>
+<p>If you want to disable this, specify the
+following config value in your configuration:</p>
+<pre><code class="hljs css language-java"> .addConfigValue(DeviceManager.IS_DEVICE_MANAGER_ENABLED_CFG,<span class="hljs-keyword">false</span>)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="init-and-use-vckclient"></a><a href="#init-and-use-vckclient" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Init and use VCKClient</h3>
+<p><strong><em>Shared instance</em></strong></p>
+<pre><code class="hljs css language-java">VCKConfiguration configuration = VCKConfigurationHelper.getDefault();
+ViperaCloudKit.initialize(context,configuration);
+
+<span class="hljs-comment">// when you want use the shared instance:</span>
+VCKClient defaultClient = ViperaCloudKit.getDefaultClient();
+</code></pre>
+<p><strong><em>New instance</em></strong></p>
+<pre><code class="hljs css language-java">ViperaCloudKit.initialize(context);
+...
+VCKClient separate = ViperaCloudKit.createClient(context, configuration);
+</code></pre>
+<p>if you want to add an header to all request generated from a VCKClient :</p>
+<pre><code class="hljs css language-java">vckClient.setDefaultHeader(<span class="hljs-string">"my-header-name"</span>,<span class="hljs-string">"value"</span>);
+
+</code></pre>
+<p>If a specific request require an header, specify this header to the request entity itself</p>
+<h4><a class="anchor" aria-hidden="true" id="consume-rest-api-on-vipera-cloud-backend"></a><a href="#consume-rest-api-on-vipera-cloud-backend" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Consume REST api on Vipera Cloud Backend</h4>
+<p>In order to consume a network resource (web api), you need to obtain a network task from a VCKClient. The first step is to create a RequestEntity&lt;&gt; instance (using a Builder).</p>
+<p>RequestEntity require the type of the body or Void in case of a request without body (ex in case of GET)</p>
+<pre><code class="hljs css language-java">
+//without Body:
+RequestEntity&lt;Void&gt; requestEntity = vckClient.requestBuilder(Void.class)
+    ....
+
+// with body
+RequestEntity&lt;MyRequestDTO&gt; requestEntity = vckClient.requestBuilder(MyRequestDTO.class)
+                //.addPathSegment("secure")
+        .addPathSegment("your")
+        .addPathSegment("api")
+        .addPathSegment("path")
+        // or .addEncodedPath("your/api/path")
+        .addPathParam("selector","value")
+        .addQueryParam("p1","v1")
+        //if your request require authentication
+        .setAuthenticationRequired(true)
+        // if you want to add a header to this request
+        .addHeader("myRequestHeader","value")
+        // if you have a body (ex in case of post request)
+        .setBody(myDto)
+        .build();
+
+</code></pre>
+<p>A request is required to create a NetworkTask.</p>
+<p>The following HTTP method are available (with different overloads):</p>
+<ul>
+<li>get</li>
+<li>post</li>
+<li>put</li>
+<li>delete</li>
+<li>patch</li>
+</ul>
+<pre><code class="hljs css language-java"><span class="hljs-comment">//HTTP POST</span>
+NetworkTask&lt;MyResponseDTO&gt; myTask = vckClient.post(requestEntity, MyResponseDTO<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+NetworkTask&lt;String&gt; myTask = vckClient.post(requestEntity);
+
+HTTP GET
+NetworkTask&lt;MyResponseDTO&gt; myTask = vckClient.get(requestEntity, MyResponseDTO<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+NetworkTask&lt;String&gt; myTask = vckClient.get(requestEntity);
+
+
+HTTP PUT
+NetworkTask&lt;MyResponseDTO&gt; myTask = vckClient.put(requestEntity, MyResponseDTO<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+NetworkTask&lt;String&gt; myTask = vckClient.put(requestEntity);
+
+HTTP DELETE
+NetworkTask&lt;MyResponseDTO&gt; myTask = vckClient.delete(requestEntity, MyResponseDTO<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+NetworkTask&lt;String&gt; myTask = vckClient.delete(requestEntity);
+
+HTTP PATCH
+NetworkTask&lt;MyResponseDTO&gt; myTask = vckClient.patch(requestEntity, MyResponseDTO<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+NetworkTask&lt;String&gt; myTask = vckClient.patch(requestEntity);
+</code></pre>
+<p>When you have a task you can exec the task syncronously:</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">try</span> {
+     ResponseEntity&lt;MyRequestDTO&gt; response = mytask.exec();
+     MyRequestDTO body = response.getResponseBody();
+     <span class="hljs-comment">// Map&lt;String, String&gt; headers = response.getHeaders();</span>
+     <span class="hljs-comment">// int statusCode = response.getStatusCode();</span>
+} <span class="hljs-keyword">catch</span> (VCKError error) {
+    ...
+}
+</code></pre>
+<p>or enqueue your request and receive the response via callback:</p>
+<pre><code class="hljs css language-java">mytask.enqueue(<span class="hljs-keyword">new</span> ResponseCallback&lt;MyRequestDTO&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(ResponseEntity&lt;MyRequestDTO&gt; response)</span> </span>{
+        MyRequestDTO body = response.getResponseBody();
+        <span class="hljs-comment">// Map&lt;String, String&gt; headers = response.getHeaders();</span>
+        <span class="hljs-comment">// int statusCode = response.getStatusCode(); </span>
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(VCKError error)</span> </span>{
+        <span class="hljs-comment">//handle error here</span>
+    }
+}<span class="hljs-comment">/*, myCallbackExecutor. See VCKPlatformExecutors */</span>);
+
+</code></pre>
+<p>Example of a service api</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserEnrollmentApi</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> VCKClient vckClient;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String ENROLLMENT = <span class="hljs-string">"enrollment"</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String MC_IDCM = <span class="hljs-string">"mcidcm"</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UserEnrollmentApi</span><span class="hljs-params">(VCKClient vckClient)</span> </span>{
+        <span class="hljs-keyword">this</span>.vckClient = vckClient;
+    }
+
+    &lt;T&gt; RequestEntity.<span class="hljs-function">Builder&lt;T&gt; <span class="hljs-title">baseRequest</span><span class="hljs-params">(Class&lt;T&gt; tClass)</span> </span>{
+        <span class="hljs-keyword">return</span> vckClient.requestBuilder(tClass)
+                .addPathSegment(MC_IDCM); <span class="hljs-comment">// service path</span>
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> NetworkTask&lt;UserEnrollmentResponse&gt; <span class="hljs-title">enrollAccount</span><span class="hljs-params">(UserEnrollmentRequest userEnrollmentRequest)</span> </span>{
+        RequestEntity&lt;UserEnrollmentRequest&gt; requestEntity = baseRequest(UserEnrollmentRequest<span class="hljs-class">.<span class="hljs-keyword">class</span>)
+                .<span class="hljs-title">addPathSegment</span>(<span class="hljs-title">ENROLLMENT</span>)
+                .<span class="hljs-title">setBody</span>(<span class="hljs-title">userEnrollmentRequest</span>)
+                .<span class="hljs-title">build</span>()</span>;
+        <span class="hljs-keyword">return</span> vckClient.post(requestEntity, UserEnrollmentResponse<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> NetworkTask&lt;UserEnrollmentStatusResponse&gt; <span class="hljs-title">getEnrollmentStatus</span><span class="hljs-params">()</span> </span>{
+        RequestEntity&lt;String&gt; requestEntity = baseRequest(String<span class="hljs-class">.<span class="hljs-keyword">class</span>)
+                .<span class="hljs-title">addPathSegment</span>(<span class="hljs-title">ENROLLMENT</span>)
+                .<span class="hljs-title">build</span>()</span>;
+        <span class="hljs-keyword">return</span> vckClient.get(requestEntity, UserEnrollmentStatusResponse<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> NetworkTask&lt;UserEnrollmentStatusResponse&gt; <span class="hljs-title">completeEnrollment</span><span class="hljs-params">(CompleteEnrollmentRequest completeEnrollmentRequest)</span></span>{
+        RequestEntity&lt;CompleteEnrollmentRequest&gt; requestEntity = baseRequest(CompleteEnrollmentRequest<span class="hljs-class">.<span class="hljs-keyword">class</span>)
+                .<span class="hljs-title">addPathSegment</span>(<span class="hljs-title">ENROLLMENT</span>)
+                .<span class="hljs-title">setBody</span>(<span class="hljs-title">completeEnrollmentRequest</span>)
+                .<span class="hljs-title">build</span>()</span>;
+
+        <span class="hljs-keyword">return</span> vckClient.put(requestEntity, UserEnrollmentStatusResponse<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+    }
+
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="push-token-registration"></a><a href="#push-token-registration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Push Token Registration</h4>
+<pre><code class="hljs css language-java">String pushToken = getPushTokenFromProvider();
+String scope = <span class="hljs-string">"default"</span>;
+
+vckClient.registerPushToken(pushToken, scope, <span class="hljs-keyword">new</span> DeviceApiListener&lt;Void&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(Void aVoid)</span> </span>{
+        <span class="hljs-comment">//ok, token update done on this device</span>
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(VCKError vckError)</span> </span>{
+        <span class="hljs-comment">// fail, handle error or retry</span>
+    }
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="authentication-oauth2"></a><a href="#authentication-oauth2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authentication (OAuth2)</h3>
+<p>VCKClient embed an OAuth2Client with a defined set of api / use cases.
+This client automatically handle the refresh of the access token.</p>
+<h4><a class="anchor" aria-hidden="true" id="configuration-1"></a><a href="#configuration-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h4>
+<table>
+<thead>
+<tr><th>Value</th><th>Description</th><th>Mandatory</th><th>Default</th></tr>
+</thead>
+<tbody>
+<tr><td>OAuth2Configuration.CLIENT_ID</td><td>OAuth2 client id</td><td>T</td><td>null</td></tr>
+<tr><td>OAuth2Configuration.AUTH_URL</td><td>Oauth2 server url</td><td>F</td><td>${baseUrl}/protocol/openid-connect/token</td></tr>
+<tr><td>OAuth2Configuration.TOKEN_URL</td><td>OAuth2 token url</td><td>F</td><td>${baseUrl}/protocol/openid-connect/token</td></tr>
+<tr><td>OAuth2Configuration.TOKEN_REVOKE_URL</td><td>OAuth2 token revoke url</td><td>F</td><td>${baseUrl}/protocol/openid-connect/token</td></tr>
+<tr><td>OAuth2Configuration.INTROSPECT_URL</td><td>OAuth2 intropect url</td><td>F</td><td>${baseUrl}/protocol/openid-connect/token/introspect</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="login"></a><a href="#login" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Login</h4>
+<pre><code class="hljs css language-java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onLoginClick</span><span class="hljs-params">()</span></span>{
+    Credentials credentials = getCurrentCredentials();
+    ViperaCloudKit.getDefaultClient().loginWithCredential(credentials, <span class="hljs-keyword">new</span> LoginListener() {
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onLoginDone</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-comment">// now my request could be autheneticated</span>
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onLoginFail</span><span class="hljs-params">(VCKError error)</span> </span>{
+            <span class="hljs-comment">// handle failed</span>
+        }
+    });
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="check-session"></a><a href="#check-session" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Check session</h4>
+<p>When a user is logged in, the VCKClient inject in your request the security data (headers etc...)</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">boolean</span> loggedIn = vckClient.isLoggedIn();
+</code></pre>
+<pre><code class="hljs css language-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doCheckSession</span><span class="hljs-params">()</span> </span>{
+    vckClient.checkLoginSession(<span class="hljs-keyword">new</span> CheckSessionListener() {
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCheckDone</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> isValid)</span> </span>{
+            Timber.i(<span class="hljs-string">"onCheckDone: %b"</span>, isValid);
+            <span class="hljs-keyword">if</span>(!isValid){
+                goToLogin();
+            }
+
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCheckFail</span><span class="hljs-params">(VCKError ex)</span> </span>{
+            Timber.e(<span class="hljs-string">"onCheckFail: %s"</span> ,ex.toString());
+            goToLogin();
+        }
+    }, VCKPlatformExecutors.MAIN_THREAD_EXECUTOR);
+}
+
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="logout"></a><a href="#logout" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Logout</h4>
+<pre><code class="hljs css language-java"><span class="hljs-comment">//only locally</span>
+vckClient.getOAuth2ApiClient().resetTokenStatus();
+
+<span class="hljs-comment">//remote</span>
+NetworkTask&lt;String&gt; logoutTask = vckClient.getOAuth2ApiClient().logout();
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="credentials"></a><a href="#credentials" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Credentials</h2>
+<table>
+<thead>
+<tr><th>Class</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>PasswordCredentials</td><td>password</td><td>Username / password credentials</td></tr>
+<tr><td>PinCredentials</td><td>pin</td><td>Username / generated token (generating from a pin)</td></tr>
+<tr><td>FingerprintCredentials</td><td>fingerprint</td><td>Biometric credential (not only fingerprint, depending on the support of device). Usernamen / biometric protected token</td></tr>
+</tbody>
+</table>
+<p>Vipera cloud kit offers apis to help you to manage tokens that you can use to handle biometric and pin based credentials</p>
+<h2><a class="anchor" aria-hidden="true" id="api-ref"></a><a href="#api-ref" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API ref</h2>
+<p>The VCKClient provides the following features:</p>
+<ul>
+<li>The login/logout and check session api based on OAuth2</li>
+<li>All apis needed to consume rest services</li>
+<li>Device management flows via api and automatic hooks</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="loginwithcredentials"></a><a href="#loginwithcredentials" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LoginWithCredentials</h3>
+<p>This API performs a login to the system using the provided credentials</p>
+<pre><code class="hljs css language-java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loginWithCredential</span><span class="hljs-params">(Credentials credentials, LoginListener listener)</span></span>;
+</code></pre>
+<p>The Credentials interface represents the credential to use for the login, without any detail of its content, but only defining its type</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Credentials</span> </span>{
+    <span class="hljs-function">String <span class="hljs-title">getType</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
+<p>The loginWithCredential API supports 3 types of credentials: PasswordCredentials, PinCredentials and FingerprintCredentials</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PasswordCredentials</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Credentials</span> </span>{
+
+    <span class="hljs-keyword">private</span> String username;
+    <span class="hljs-keyword">private</span> String password;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String USERNAME_PASSWORD_TYPE = <span class="hljs-string">"password"</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">PasswordCredentials</span><span class="hljs-params">(String username, String password)</span> </span>{
+        <span class="hljs-keyword">this</span>.username = username;
+        <span class="hljs-keyword">this</span>.password = password;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getType</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> USERNAME_PASSWORD_TYPE;
+    }
+
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getUsername</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> username;
+    }
+
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getPassword</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> password;
+    }
+
+}
+</code></pre>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PinCredentials</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Credentials</span></span>{
+
+    <span class="hljs-keyword">private</span> String pin;
+    <span class="hljs-keyword">private</span> String username;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String PIN_TYPE = <span class="hljs-string">"pin"</span>;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getType</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> PIN_TYPE;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">PinCredentials</span><span class="hljs-params">(String pin, String username)</span> </span>{
+        <span class="hljs-keyword">this</span>.pin = pin;
+        <span class="hljs-keyword">this</span>.username = username;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getUsername</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> username;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getPin</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> pin;
+    }
+}
+</code></pre>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FingerprintCredentials</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Credentials</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String FINGERPRINT_TYPE = <span class="hljs-string">"fingerprint"</span>;
+
+    <span class="hljs-keyword">private</span> String username;
+    <span class="hljs-keyword">private</span> String fingerprint;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FingerprintCredentials</span><span class="hljs-params">(String username, String fingerprint)</span> </span>{
+        <span class="hljs-keyword">this</span>.username = username;
+        <span class="hljs-keyword">this</span>.fingerprint = fingerprint;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getType</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> FINGERPRINT_TYPE;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getUsername</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> username;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getFingerprint</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> fingerprint;
+    }
+    
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="tokenexchange"></a><a href="#tokenexchange" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TokenExchange</h3>
+<p>The ID token may be exchanged for an access token at the token endpoint of an OAuth 2.0 authorisation server.
+Token exchange has uses in distributed applications. After a success exchange, your app can continue like after a login with credentials. The TokenData is automatically injected in underling OAuth2 client</p>
+<pre><code class="hljs css language-java"><span class="hljs-function">NetworkTask&lt;TokenData&gt; <span class="hljs-title">tokenExchange</span><span class="hljs-params">(TokenExchangeRequest tokenExchangeRequest)</span>  <span class="hljs-keyword">throws</span> VCKNetworkError</span>;
+</code></pre>
+<p>Where TokenExchangeRequest have the following parameters:</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TokenExchangeRequest</span> </span>{
+    <span class="hljs-keyword">private</span> String clientId;
+    <span class="hljs-keyword">private</span> String clientSecret;
+    <span class="hljs-keyword">private</span> String subjectToken;
+    <span class="hljs-keyword">private</span> String subjectIssuer;
+    <span class="hljs-keyword">private</span> String subjectTokenType;
+    <span class="hljs-keyword">private</span> String grantType;
+    
+    ...
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="getnetwork"></a><a href="#getnetwork" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GetNetwork</h3>
+<p>Get the &quot;under the hood&quot; instance of the network layer.
+This instance not provide a set of automatic operations (like device subscription)</p>
+<pre><code class="hljs css language-java"><span class="hljs-function">VCKNetworkManager <span class="hljs-title">getNetwork</span><span class="hljs-params">()</span></span>;
+</code></pre>
+<p>The VCKNetworkManager instance provides the Client to consume REST APIs of Vipera Cloud Kit
+Provide methods to make get, post, put, delete, patch calls.</p>
+<h3><a class="anchor" aria-hidden="true" id="getconfiguration"></a><a href="#getconfiguration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GetConfiguration</h3>
+<p>This API retrieves the VCKConfiguration</p>
+<pre><code class="hljs css language-java"><span class="hljs-function">VCKConfiguration <span class="hljs-title">getConfiguration</span><span class="hljs-params">()</span></span>;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="getoauth2apiclient"></a><a href="#getoauth2apiclient" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GetOAuth2ApiClient</h3>
+<p>This API retrieves the instance of OAuth 2 api client</p>
+<pre><code class="hljs css language-java"><span class="hljs-function">OAuth2ApiClient <span class="hljs-title">getOAuth2ApiClient</span><span class="hljs-params">()</span></span>;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="isloggedin"></a><a href="#isloggedin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>IsLoggedIn</h3>
+<p>Check if user is authenticated.
+This check is completely static: the authentication could be expired or not valid</p>
+<pre><code class="hljs css language-java"><span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">isLoggedIn</span><span class="hljs-params">()</span></span>;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="getappinstanceid"></a><a href="#getappinstanceid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GetAppInstanceId</h3>
+<p>Get the application instance id of this app.</p>
+<pre><code class="hljs css language-java"><span class="hljs-function">String <span class="hljs-title">getAppInstanceId</span><span class="hljs-params">()</span></span>;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="getdevicecode"></a><a href="#getdevicecode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GetDeviceCode</h3>
+<p>This API is used to retrieve the device code</p>
+<pre><code class="hljs css language-java"><span class="hljs-function">String <span class="hljs-title">getDeviceCode</span><span class="hljs-params">()</span></span>;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="getcurrentuserid"></a><a href="#getcurrentuserid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GetCurrentUserId</h3>
+<p>Retrieve the current user id</p>
+<pre><code class="hljs css language-java"><span class="hljs-function">String <span class="hljs-title">getCurrentUserId</span><span class="hljs-params">()</span></span>;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="registerpushtoken"></a><a href="#registerpushtoken" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RegisterPushToken</h3>
+<p>Register the push token provider</p>
+<pre><code class="hljs css language-java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">registerPushToken</span><span class="hljs-params">(String pushToken, String scope, DeviceApiListener&lt;Void&gt; listener)</span></span>;
+</code></pre>
+<p>This API takes the push token and the scope of the token as parameters and returns the result of the operation (success or failure) in the callback listener.</p>
+<h3><a class="anchor" aria-hidden="true" id="checkloginsession"></a><a href="#checkloginsession" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CheckLoginSession</h3>
+<p>Check the status of the current authentication session</p>
+<pre><code class="hljs css language-java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">checkLoginSession</span><span class="hljs-params">(CheckSessionListener listener, Executor executor)</span></span>;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="token-support"></a><a href="#token-support" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Token support</h2>
+<p>See this <a href="/docs/vipera-cloud-kit-android/cloudkit_crypto/cloud-kit-crypto_README">SECTION</a> to more info</p>
+<h2><a class="anchor" aria-hidden="true" id="error-handling"></a><a href="#error-handling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error handling</h2>
+<p>The VCKError class, which stands for Vipera Cloud Kit Error, extends the Exception class providing a code to recognize the different types of errors.</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VCKError</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Exception</span> </span>{
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String GENERIC_ERROR = <span class="hljs-string">"GENERIC_ERROR"</span>;
+    <span class="hljs-keyword">private</span> String code;
+    
+    ...
+    
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">VCKError</span><span class="hljs-params">(String code,String message,Throwable cause)</span></span>{
+        <span class="hljs-keyword">super</span>(message,cause);
+        <span class="hljs-keyword">this</span>.code = code;
+    }
+}
+</code></pre>
+<p>The VCKError class is also extensible which allows for a more structured error handling, based on the instance of the VCKError.
+In the cloudkit-core module, for example, we can find the VCKNetworkError which is the error class for Network errors.</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VCKNetworkError</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">VCKError</span> </span>{
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> UNDEFINED_STATUS_CODE = -<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">private</span> ResponseEntity&lt;String&gt; responseEntity;
+    <span class="hljs-keyword">private</span> JSONObject context;
+    
+    ...
+    
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">VCKNetworkError</span><span class="hljs-params">(ResponseEntity&lt;String&gt; responseEntity, ErrorContent errorContent)</span></span>{
+        <span class="hljs-keyword">super</span>(errorContent.getCode(), errorContent.getMessage());
+        <span class="hljs-keyword">this</span>.responseEntity = responseEntity;
+        <span class="hljs-keyword">this</span>.context = errorContent.getContext();
+    }
+
+    ...
+    
+}
+</code></pre>
+<p>Other modules that depends on the Vipera Cloud Kit can define their own Error classes with their own error codes.
+This way each module can have their own error codes that does not need to be unique.
+Here's an example of error resolution using the VCKError instance type:</p>
+<pre><code class="hljs css language-java"><span class="hljs-meta">@NonNull</span>
+<span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> ErrorResolveResult <span class="hljs-title">resolveError</span><span class="hljs-params">(@Nullable VCKError vckError)</span> </span>{
+    <span class="hljs-keyword">if</span>(vckError <span class="hljs-keyword">instanceof</span> VCKNetworkError){
+        <span class="hljs-keyword">return</span> resolveVCKNetworkError((VCKNetworkError) vckError);
+    }
+    <span class="hljs-keyword">return</span> ErrorResolveResult.notMine();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">private</span> ErrorResolveResult <span class="hljs-title">resolveVCKNetworkError</span><span class="hljs-params">(VCKNetworkError vckError)</span> </span>{
+    String code = vckError.getCode();
+    <span class="hljs-keyword">switch</span> (code){
+        <span class="hljs-keyword">case</span> FORBIDDEN:
+            <span class="hljs-comment">//handle forbidden</span>
+            
+        ...
+        
+        <span class="hljs-comment">//case OTHER ERROR CODES</span>
+        
+        <span class="hljs-keyword">default</span>:
+            <span class="hljs-comment">//handle default</span>
+            <span class="hljs-keyword">break</span>;
+    }
+
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/docs/vipera-cloud-kit-android/cloudkit_crypto/cloud-kit-crypto_README"><span>Crypto</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#available-modues">Available Modues</a></li><li><a href="#setup-environment">Setup Environment</a><ul class="toc-headings"><li><a href="#access-to-maven-repo-nexus">Access to Maven Repo (Nexus)</a></li></ul></li><li><a href="#getting-started">Getting Started</a><ul class="toc-headings"><li><a href="#configuration">Configuration</a></li><li><a href="#init-and-use-vckclient">Init and use VCKClient</a></li><li><a href="#authentication-oauth2">Authentication (OAuth2)</a></li></ul></li><li><a href="#credentials">Credentials</a></li><li><a href="#api-ref">API ref</a><ul class="toc-headings"><li><a href="#loginwithcredentials">LoginWithCredentials</a></li><li><a href="#tokenexchange">TokenExchange</a></li><li><a href="#getnetwork">GetNetwork</a></li><li><a href="#getconfiguration">GetConfiguration</a></li><li><a href="#getoauth2apiclient">GetOAuth2ApiClient</a></li><li><a href="#isloggedin">IsLoggedIn</a></li><li><a href="#getappinstanceid">GetAppInstanceId</a></li><li><a href="#getdevicecode">GetDeviceCode</a></li><li><a href="#getcurrentuserid">GetCurrentUserId</a></li><li><a href="#registerpushtoken">RegisterPushToken</a></li><li><a href="#checkloginsession">CheckLoginSession</a></li></ul></li><li><a href="#token-support">Token support</a></li><li><a href="#error-handling">Error handling</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/fabrick.svg" alt="Vipera Cloud Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Vipera / Fabrick</section></footer></div></body></html>

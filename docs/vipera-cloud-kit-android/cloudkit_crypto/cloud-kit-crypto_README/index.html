@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Cloud Kit Crypto · Vipera Cloud Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="***Required Module: cloudkit-crypto***"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Cloud Kit Crypto · Vipera Cloud Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="***Required Module: cloudkit-crypto***"/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/fabrick-lite.svg" alt="Vipera Cloud Documentation"/><h2 class="headerTitleWithLogo">Vipera Cloud Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/vipera-cloud-kit-android/vipera-cloud-kit-android-README" target="_self">Cloud Kit</a></li><li class=""><a href="/docs/mc-idcm-kit-android/mc-idcm-kit-android-README" target="_self">IDCM Kit</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Cloud Kit</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Cloud Kit</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/vipera-cloud-kit-android/vipera-cloud-kit-android-README">Core</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/vipera-cloud-kit-android/cloudkit_crypto/cloud-kit-crypto_README">Crypto</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Cloud Kit Crypto</h1></header><article><div><span><p><strong><em>Required Module: cloudkit-crypto</em></strong></p>
+<h2><a class="anchor" aria-hidden="true" id="pin"></a><a href="#pin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PIN</h2>
+<p>Allows your app to store/read token protected with pin and encryption key in keystore</p>
+<h3><a class="anchor" aria-hidden="true" id="init"></a><a href="#init" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Init</h3>
+<pre><code class="hljs css language-java">String prefName = <span class="hljs-string">"tkd"</span>;
+String keyMasterName = <span class="hljs-string">"km1"</span>
+...
+PinTokenProvider pinTokenProvider = <span class="hljs-keyword">new</span> PinTokenProviderImpl(<span class="hljs-keyword">this</span>, prefName, keyMasterName);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="store-a-token"></a><a href="#store-a-token" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Store a token</h3>
+<pre><code class="hljs css language-java">String tokenId = <span class="hljs-string">"tokenId"</span>;
+String pin= getPin(); <span class="hljs-comment">// could be alphanumeric</span>
+PinToken pinToken = pinTokenProvider.generateAndStore(tokenId, pin);
+String tokenValue = pinToken.getValue();
+
+<span class="hljs-comment">// if you want to store your custom secret, use</span>
+String mySecret = <span class="hljs-string">"..."</span>
+PinToken pinToken = pinTokenProvider.store(tokenId, mySecret, pin);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="read-token"></a><a href="#read-token" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Read token</h3>
+<pre><code class="hljs css language-java">String pin= getUserPin();
+PinToken pinToken = pinTokenProvider.get(tokenId,pin);
+String tokenValue = pinToken.getValue();
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="delete-token"></a><a href="#delete-token" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Delete token</h3>
+<pre><code class="hljs css language-java">PinToken pinToken = pinTokenProvider.delete(tokenId);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="biometric"></a><a href="#biometric" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Biometric</h2>
+<p>Allows your app to store/read token protected with biometric</p>
+<h3><a class="anchor" aria-hidden="true" id="initialize"></a><a href="#initialize" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Initialize</h3>
+<pre><code class="hljs css language-java">BiometricSupport biometricSupport = BiometricSupport.of(<span class="hljs-keyword">this</span>);
+</code></pre>
+<p>In the initiliaztion, biometric support performe a warnup in order to check the underling key material
+status. If key material is compromised, all data will be deleted an material reinit. You can performe a check programmatically using <strong><em>isBiometricKeyValid()</em></strong> api or <strong><em>BiometricHelper.isBiometricSupportValid(biometricSupport)</em></strong></p>
+<h3><a class="anchor" aria-hidden="true" id="check-biometric-status"></a><a href="#check-biometric-status" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Check biometric status</h3>
+<pre><code class="hljs css language-java">BiometricStatus status = biometricSupport.getBiometricStatus();
+
+<span class="hljs-keyword">switch</span> (status){
+    <span class="hljs-keyword">case</span> ENROLLED:
+        <span class="hljs-comment">// A valid biometry is enrolled on this device</span>
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> AVAILABLE_NOT_ENROLLED:
+        <span class="hljs-comment">// Device support biometric authentication but no biometry has currently enrolled</span>
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> NOT_AVAILABLE:
+        <span class="hljs-comment">// No hardware available</span>
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> ERROR:
+        <span class="hljs-comment">// Device signal an error</span>
+        <span class="hljs-keyword">break</span>;
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="store-biometric-token"></a><a href="#store-biometric-token" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Store biometric token</h3>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">this</span>.authenticationPrompt = BiometricHelper.preparePrompt(<span class="hljs-keyword">this</span>, biometricSupport, VCKPlatformExecutors.MAIN_THREAD_EXECUTOR);
+authenticationPrompt.storeToken(tokenId, <span class="hljs-string">"MyTestFingerprintToken"</span>, <span class="hljs-keyword">new</span> BiometricPrompt.PromptInfo.Builder()
+        .setTitle(<span class="hljs-string">"Your title"</span>)
+        .setSubtitle(<span class="hljs-string">"Your message"</span>)
+        .setNegativeButtonText(<span class="hljs-string">"cancel"</span>)
+        .build(), <span class="hljs-keyword">new</span> AuthenticationPrompt.Callback() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(BiometricToken biometricToken)</span> </span>{
+        <span class="hljs-comment">//do something with this token</span>
+    }
+
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAuthenticationError</span><span class="hljs-params">(VCKBiometricError biometricError)</span> </span>{
+        <span class="hljs-keyword">super</span>.onAuthenticationError(biometricError);
+        Timber.e(<span class="hljs-string">"onAuthenticationError -&gt; [%d] : %s"</span>,biometricError.getOriginalCode(),biometricError.toString());
+    }
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="check-if-token-is-present"></a><a href="#check-if-token-is-present" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Check if token is present</h3>
+<pre><code class="hljs css language-java">String tokenId = <span class="hljs-string">"myTokenId"</span>
+
+<span class="hljs-keyword">boolean</span> biometricTokenAvailable = biometricSupport.isEncryptedDataAvailable(tokenId);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="read-biometric-token"></a><a href="#read-biometric-token" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Read biometric token</h3>
+<pre><code class="hljs css language-java"><span class="hljs-comment">// read token</span>
+<span class="hljs-keyword">this</span>.authenticationPrompt = BiometricHelper.preparePrompt(<span class="hljs-keyword">this</span>, biometricSupport, VCKPlatformExecutors.MAIN_THREAD_EXECUTOR);
+    <span class="hljs-keyword">this</span>.authenticationPrompt.getToken(tokenId, <span class="hljs-keyword">new</span> BiometricPrompt.PromptInfo.Builder()
+            .setTitle(<span class="hljs-string">"Your title"</span>)
+            .setSubtitle(<span class="hljs-string">"Sub title"</span>)
+            .setNegativeButtonText(<span class="hljs-string">"Cancel"</span>)
+            .build(), <span class="hljs-keyword">new</span> AuthenticationPrompt.Callback() {
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(BiometricToken biometricToken)</span> </span>{
+            <span class="hljs-comment">//do something with this token</span>
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAuthenticationError</span><span class="hljs-params">(VCKBiometricError biometricError)</span> </span>{
+            <span class="hljs-keyword">super</span>.onAuthenticationError(biometricError);
+            Timber.e(<span class="hljs-string">"onAuthenticationError -&gt; [%d] : %s"</span>,biometricError.getOriginalCode(),biometricError.toString());
+        }
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="delete-biometric-token"></a><a href="#delete-biometric-token" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Delete biometric token</h3>
+<pre><code class="hljs css language-java">biometricSupport.deleteAllDataByKey(tokenId);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="re-init"></a><a href="#re-init" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Re-init</h3>
+<pre><code class="hljs css language-java">biometricSupport.resetAndReInit()
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/vipera-cloud-kit-android/vipera-cloud-kit-android-README"><span class="arrow-prev">← </span><span>Core</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#pin">PIN</a><ul class="toc-headings"><li><a href="#init">Init</a></li><li><a href="#store-a-token">Store a token</a></li><li><a href="#read-token">Read token</a></li><li><a href="#delete-token">Delete token</a></li></ul></li><li><a href="#biometric">Biometric</a><ul class="toc-headings"><li><a href="#initialize">Initialize</a></li><li><a href="#check-biometric-status">Check biometric status</a></li><li><a href="#store-biometric-token">Store biometric token</a></li><li><a href="#check-if-token-is-present">Check if token is present</a></li><li><a href="#read-biometric-token">Read biometric token</a></li><li><a href="#delete-biometric-token">Delete biometric token</a></li><li><a href="#re-init">Re-init</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/fabrick.svg" alt="Vipera Cloud Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Vipera / Fabrick</section></footer></div></body></html>

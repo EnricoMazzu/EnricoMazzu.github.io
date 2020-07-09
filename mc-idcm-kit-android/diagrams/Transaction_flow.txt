@@ -1,0 +1,122 @@
+title Transaction Flow
+
+participant App
+participant Transaction Manager
+participant Notification Manager
+participant IDCM (Vipera Cloud)
+participant IDC Mastercard
+
+IDC Mastercard->IDCM (Vipera Cloud): refbe/SendNotification\n type VERIFY_3DS, ....
+
+activate IDCM (Vipera Cloud)
+
+IDCM (Vipera Cloud)->IDCM (Vipera Cloud): storeTransaction(...)
+
+IDCM (Vipera Cloud)->IDCM (Vipera Cloud): createRemoteNotification()
+
+
+IDCM (Vipera Cloud)-->App: Notification (VERIFY_3DS, transactionInfo...)
+
+deactivate IDCM (Vipera Cloud)
+
+activate App
+App->Notification Manager: processNotification(from, data)
+
+
+activate Notification Manager
+Notification Manager->Transaction Manager:processNotification
+
+Transaction Manager ->Notification Manager: NotificationProcessResult.userActionRequired(idcmNotification);
+
+Notification Manager ->App: NotificationProcessResult.userActionRequired(idcmNotification);
+
+deactivate Notification Manager
+
+note over App:show ui (notification or custom screen with ui to accept or reject transaction has you want
+
+
+alt User Confirm the transaction
+[->App: confirm transaction (transaction)
+
+App->Transaction Manager: authorizeTransaction(transaction, tenantAccountId ,..)
+
+
+deactivate App
+activate Transaction Manager
+
+Transaction Manager->Transaction Manager:initializeFidoAuthentication(...)
+
+note over Transaction Manager: FidoAuthentication is a blocking call.\nMC sdk call directly IDC Backend
+
+
+
+IDC Mastercard->IDCM (Vipera Cloud): refbe/sendNotification\n\n type: SDK_PAYLOAD,\n tenantAccountId: ...
+
+activate IDCM (Vipera Cloud)
+
+IDCM (Vipera Cloud)->IDCM (Vipera Cloud): createRemoteNotification()
+
+IDCM (Vipera Cloud)-->App: Notification (SDK_PAYLOAD, ...)
+
+deactivate IDCM (Vipera Cloud)
+
+activate App
+App->Notification Manager: processNotification(from, data)
+
+
+activate Notification Manager
+Notification Manager->Notification Manager: setSDKPushPayload(data)
+
+Notification Manager ->App: NotificationProcessResult.ok()
+deactivate App
+
+
+Notification Manager-->Transaction Manager:
+
+deactivate Notification Manager
+
+note over Transaction Manager: unblock the InitializeFidoRegistration
+
+
+Transaction Manager->IDCM (Vipera Cloud): fidoAuthentication
+
+deactivate Transaction Manager
+
+activate IDCM (Vipera Cloud)
+
+IDCM (Vipera Cloud)->IDC Mastercard : ...
+
+IDC Mastercard->IDCM (Vipera Cloud): ...
+
+IDCM (Vipera Cloud) ->Transaction Manager: AuthenticationResponse (mcSdkResponse)
+
+deactivate IDCM (Vipera Cloud)
+activate Transaction Manager
+
+
+Transaction Manager->Transaction Manager: processFidoAuthentication(mcSdkResponse,...)
+
+note over Transaction Manager: MC SDK show ui to acquire user authentication (Biometric / Pin)
+
+Transaction Manager->IDCM (Vipera Cloud): fidoAck(..)
+deactivate Transaction Manager
+
+activate IDCM (Vipera Cloud)
+IDCM (Vipera Cloud)->IDC Mastercard: ...
+IDC Mastercard->IDCM (Vipera Cloud): ...
+
+IDCM (Vipera Cloud)->Transaction Manager: FidoAckResponse (mcSdkResponse)
+
+deactivate IDCM (Vipera Cloud)
+activate Transaction Manager
+
+Transaction Manager->Transaction Manager: completeFidoAuthentication(...)
+
+Transaction Manager->App: onAuthorizationDone()
+
+
+else User reject the transaction
+
+end
+
+

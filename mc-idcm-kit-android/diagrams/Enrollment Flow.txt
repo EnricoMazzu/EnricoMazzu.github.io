@@ -1,0 +1,153 @@
+title Enrollment_Flow(DeviceRegistration)
+
+participant App
+participant Enrollment Manager
+participant Notification Manager
+participant IDCM (Vipera Cloud)
+participant IDC Mastercard
+
+group DeviceRegistration
+App->Enrollment Manager: startRegistration (request,listener)
+
+activate Enrollment Manager
+Enrollment Manager->Enrollment Manager: status = getCurrentStatus()
+
+
+Enrollment Manager->Enrollment Manager: pendingTask = createEnrollmentTask(status, ...)
+
+
+Enrollment Manager->Enrollment Manager: initializeDeviceRegistration()
+
+Enrollment Manager->IDCM (Vipera Cloud): AddDevice [registerDevice]
+
+deactivate Enrollment Manager
+
+activate IDCM (Vipera Cloud)
+IDCM (Vipera Cloud)->IDC Mastercard: ...
+
+IDC Mastercard->IDCM (Vipera Cloud): ...
+IDCM (Vipera Cloud)->Enrollment Manager: AddDeviceResponse (mcSdkResponse)
+deactivate IDCM (Vipera Cloud)
+
+activate Enrollment Manager
+Enrollment Manager->Enrollment Manager: completeDeviceRegistration(...,mcSdkResponse)
+
+note over Enrollment Manager: status = REGISTERED
+end
+
+Enrollment Manager->App: onDeviceActivationPending()
+
+group DeviceVerification
+
+IDC Mastercard->IDCM (Vipera Cloud): refbe/sendNotification\n\n type: VERIFY_DEVICE,\n verificationCode: ... \n tenantAccountId: ...
+
+activate IDCM (Vipera Cloud)
+
+IDCM (Vipera Cloud)->IDCM (Vipera Cloud): createRemoteNotification()
+
+IDCM (Vipera Cloud)-->App: Notification (VERIFY_DEVICE, verificationCode)
+
+deactivate IDCM (Vipera Cloud)
+
+activate App
+App->Notification Manager: processNotification(from, data)
+
+
+activate Notification Manager
+Notification Manager->Enrollment Manager:processNotification
+
+Enrollment Manager ->Notification Manager: NotificationProcessResult.ok()
+
+Notification Manager ->App: NotificationProcessResult.ok()
+
+deactivate Notification Manager
+deactivate App
+
+
+Enrollment Manager->Enrollment Manager:pendingTask.onVerificationCodeReceived(verificationCode)
+
+Enrollment Manager->Enrollment Manager: verifyDevice(...)
+
+note over Enrollment Manager: status = VERIFIED
+
+end 
+
+Enrollment Manager->App: onDeviceRegistered()
+
+group BiometricEnrollment [Authenticators Enrollment]
+
+
+Enrollment Manager->Enrollment Manager: initializeFidoRegistration()
+note over Enrollment Manager: Fido registration is a blocking call.\nMC sdk call directly IDC Backend
+
+IDC Mastercard->IDCM (Vipera Cloud): refbe/sendNotification\n\n type: SDK_PAYLOAD, tenantAccountId: ...
+
+activate IDCM (Vipera Cloud)
+
+IDCM (Vipera Cloud)->IDCM (Vipera Cloud): createRemoteNotification()
+
+IDCM (Vipera Cloud)-->App: Notification (SDK_PAYLOAD, ...)
+
+deactivate IDCM (Vipera Cloud)
+
+activate App
+App->Notification Manager: processNotification(from, data)
+
+
+activate Notification Manager
+
+
+Notification Manager->Notification Manager: setSDKPushPayload(data)
+
+Notification Manager->App: NotificationProcessResult.ok()
+
+Notification Manager-->Enrollment Manager:
+
+deactivate Notification Manager
+
+note over Enrollment Manager: unblock the InitializeFidoRegistration
+
+
+deactivate App
+
+
+Enrollment Manager ->IDCM (Vipera Cloud): fidoRegistration()
+deactivate Enrollment Manager
+
+activate IDCM (Vipera Cloud)
+IDCM (Vipera Cloud) ->IDC Mastercard: ...
+activate IDC Mastercard
+IDC Mastercard ->IDCM (Vipera Cloud): ...
+deactivate IDC Mastercard
+
+IDCM (Vipera Cloud)->Enrollment Manager: FidoRegistrationResponse (mpSdkResponse...)
+deactivate IDCM (Vipera Cloud)
+activate Enrollment Manager
+
+Enrollment Manager->Enrollment Manager: processFidoRegistration(mcSdkResponse)
+
+note over Enrollment Manager: MC SDK show ui to acquire Pin, Fingerprint , Face... \n(All configured autenticators)
+
+Enrollment Manager->IDCM (Vipera Cloud): fidoAck(...)
+deactivate Enrollment Manager
+activate IDCM (Vipera Cloud)
+IDCM (Vipera Cloud) ->IDC Mastercard: ...
+activate IDC Mastercard
+IDC Mastercard ->IDCM (Vipera Cloud): ...
+deactivate IDC Mastercard
+
+
+IDCM (Vipera Cloud)->Enrollment Manager: FidoAckResponse (mcSdkResponse..)
+
+deactivate IDCM (Vipera Cloud)
+activate Enrollment Manager
+Enrollment Manager->Enrollment Manager: completeFidoRegistration(...)
+
+
+
+end 
+Enrollment Manager->App: onEnrollmentDone()
+
+deactivate Enrollment Manager
+
+

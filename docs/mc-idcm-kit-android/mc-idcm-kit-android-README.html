@@ -1,0 +1,855 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>IDCM Kit for Android · Vipera Cloud Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Intro"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="IDCM Kit for Android · Vipera Cloud Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="## Intro"/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/fabrick-lite.svg" alt="Vipera Cloud Documentation"/><h2 class="headerTitleWithLogo">Vipera Cloud Documentation</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/vipera-cloud-kit-android/vipera-cloud-kit-android-README" target="_self">Cloud Kit</a></li><li class="siteNavGroupActive siteNavItemActive"><a href="/docs/mc-idcm-kit-android/mc-idcm-kit-android-README" target="_self">IDCM Kit</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>IDCM Kit</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">IDCM Kit</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/mc-idcm-kit-android/mc-idcm-kit-android-README">IDCM</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">IDCM Kit for Android</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="intro"></a><a href="#intro" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Intro</h2>
+<p>IDCM is a solution that allows user to authorize online transaction using biometry as identity check via a mobile app.</p>
+<p>From Mastercard:</p>
+<p>&quot;Use active biometric identifiers such as fingerprint and facial recognition to verify identity, as an alternative to a static password and/or a step-up on authentications ...&quot;</p>
+<p>...</p>
+<p>&quot;Ability to mix and match biometric modalities and set assurance levels based on your use cases and risk levels&quot;
+...</p>
+<p>&quot;Biometric templates encrypted and securely stored on device providing user full control of their information&quot;</p>
+<h2><a class="anchor" aria-hidden="true" id="setup-environment"></a><a href="#setup-environment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setup Environment</h2>
+<p>Please referce to <a href="/docs/vipera-cloud-kit-android/vipera-cloud-kit-android-README#setup-environment">setup environment</a></p>
+<p>add local libs folder (root level gradle):</p>
+<pre><code class="hljs css language-groovy">allprojects {
+    repositories {
+        google()
+        jcenter()
+        ...
+        flatDir {
+            dirs <span class="hljs-string">'sdkLibs'</span>, <span class="hljs-string">'integrationLibs'</span>
+        }
+        ...
+        maven {
+            credentials cred
+            url(VIPERA_MAVEN_URL)
+        }
+    }
+}
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="dependencies"></a><a href="#dependencies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dependencies</h3>
+<h4><a class="anchor" aria-hidden="true" id="idcm-kit"></a><a href="#idcm-kit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Idcm kit</h4>
+<pre><code class="hljs css language-groovy">    implementation <span class="hljs-string">'androidx.appcompat:appcompat:1.1.0'</span>
+
+    <span class="hljs-keyword">def</span> cloudKitVersion = <span class="hljs-string">"0.1.8"</span>
+    implementation <span class="hljs-string">"com.vipera.cloud.client:cloudkit-core:${cloudKitVersion}"</span>
+
+    <span class="hljs-comment">//idcm kit</span>
+    <span class="hljs-keyword">def</span> idcmKitVersion = <span class="hljs-string">"0.4.1"</span>
+    implementation <span class="hljs-string">"com.vipera.cloud.client:idcm:${idcmKitVersion}"</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="mastercard-local-libs"></a><a href="#mastercard-local-libs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MasterCard local libs</h4>
+<p>You can download MasterCard local libs <a href="/mc-idcm-kit-android/localLibs/MC_LocalLibs.zip">here</a></p>
+<p>Once you have imported the libraries in your project you need to configure your gradle file as follows:</p>
+<pre><code class="hljs css language-groovy">    <span class="hljs-comment">// IDCM libs</span>
+    api(<span class="hljs-string">name:</span> <span class="hljs-string">'IDCM-fido-client-sdk-3.1.0'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    api(<span class="hljs-string">name:</span> <span class="hljs-string">'IDCM-fido-utils-3.1.0'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    api(<span class="hljs-string">name:</span> <span class="hljs-string">'mtpjose'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+
+    <span class="hljs-comment">// HYPR ADP libs</span>
+    <span class="hljs-keyword">def</span> HyprVersion = <span class="hljs-string">"4.2.4"</span>
+    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'HyprCommonAdp'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"${HyprVersion}"</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'HyprFingerprintAdp'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"${HyprVersion}"</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'HyprFaceVoiceAdp'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"${HyprVersion}"</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'HyprPinAdp'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"${HyprVersion}"</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+
+    <span class="hljs-comment">// Sensory libs</span>
+    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'vvutils'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"4.1.2.4"</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'datautils'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"4.1.2.4"</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'smma'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"4.1.2"</span>, <span class="hljs-string">classifier:</span> <span class="hljs-string">'android'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'model'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"2.1.0"</span>, <span class="hljs-string">classifier:</span> <span class="hljs-string">'combiner'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'model'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"2.1.0"</span>, <span class="hljs-string">classifier:</span> <span class="hljs-string">'face-pnn'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'model'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"2.1.0"</span>, <span class="hljs-string">classifier:</span> <span class="hljs-string">'voice-tssv-udp_enUS'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+
+    <span class="hljs-comment">// Integration libs (per project / app / packageName)</span>
+    api(<span class="hljs-string">name:</span> <span class="hljs-string">'TeeClient-2.2.8'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>) { transitive = <span class="hljs-literal">true</span> }
+    api(<span class="hljs-string">name:</span> <span class="hljs-string">'caCrypto-2.2.8'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>) { transitive = <span class="hljs-literal">true</span> }
+    api(<span class="hljs-string">name:</span> <span class="hljs-string">'THPAgent-2.2.8'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>) { transitive = <span class="hljs-literal">true</span> }
+    api(<span class="hljs-string">name:</span> <span class="hljs-string">'crypto-2.2.8'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>) { transitive = <span class="hljs-literal">true</span> }
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="getting-started"></a><a href="#getting-started" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting Started</h2>
+<h3><a class="anchor" aria-hidden="true" id="initialization"></a><a href="#initialization" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Initialization</h3>
+<pre><code class="hljs css language-java">IDCMService idcmClient = <span class="hljs-keyword">new</span> IDCMLibraryInitializer(<span class="hljs-keyword">this</span>)
+    .setConfiguration(getConfiguration())
+    .initialize();
+</code></pre>
+<p>With an instance of IDCMService, you can access to all managers when you needs:</p>
+<pre><code class="hljs css language-java">CardManager cardManager = idcmClient.getCardManager();
+EnrollmentManager enrollmentManager = idcmClient.getEnrollmentManager();
+DeviceManager deviceManager = idcmClient.getDeviceManager();
+NotificationManager notificationManagerd = idcmClient.getNotificationManager();
+TransactionManager transactionManager = idcmClient.getTransactionManager();
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="enrollment"></a><a href="#enrollment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enrollment</h3>
+<p>Enrollment flow have 3 defined spep :</p>
+<ul>
+<li>Device Registration (initialStatus: UNKNOWN | REGISTERD ; endStatus: REGISTERED)</li>
+<li>Device Verification (initialStatus: REGISTERED , endStatus: VERIFIED)</li>
+<li>Biometric Enrollment (initialStatus: VERIFIED, endStatus:ENROLLED)</li>
+</ul>
+<p><img src="/mc-idcm-kit-android/Enrollment_Flow.png" alt="My image"></p>
+<pre><code class="hljs css language-java">EnrollmentManager enrollmentManager = idcmService.getEnrollmentManager();
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="check-enrollment-status"></a><a href="#check-enrollment-status" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Check enrollment status</h4>
+<p>To Retrieve the enrollment status you can use the getCurrentStatus API that returns the local status of your account. The EnrollmentStatus object also contains
+a set of informations related to the account (like the accountId and the device nickname)</p>
+<pre><code class="hljs css language-java">EnrollmentStatus idcmStatus = enrollmentManager.getCurrentStatus();
+EnrollmentStatus.Status status = idcmStatus.getStatus();
+
+<span class="hljs-keyword">switch</span> (status){
+    <span class="hljs-keyword">case</span> REGISTERED:
+        <span class="hljs-comment">// device is registered but not verified yet.</span>
+    <span class="hljs-keyword">case</span> VERIFIED:
+        <span class="hljs-comment">// device is verified. You can start with biometric enrollment</span>
+    <span class="hljs-keyword">case</span> ENROLLED:
+        <span class="hljs-comment">// device is verified and biometry is enrolled.</span>
+    <span class="hljs-keyword">case</span> ERROR:
+        <span class="hljs-comment">// an unknown error has occurred</span>
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="start-registration-enrollment"></a><a href="#start-registration-enrollment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Start Registration (enrollment)</h4>
+<p>Based on the current enrollment status, the <strong>startRegistration</strong> can resume the flow from the latest committed status</p>
+<p><img src="/mc-idcm-kit-android/Enrollment_Management.png" alt="My image"></p>
+<pre><code class="hljs css language-java">
+<span class="hljs-function"><span class="hljs-keyword">private</span> EnrollmentRequest <span class="hljs-title">createEnrollmentRequest</span><span class="hljs-params">(String accountId,String deviceNickname)</span></span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> EnrollmentRequest(accountId)
+            .setActivity(requireActivity())
+            .setDeviceNickname(deviceNickname);
+}
+
+...
+
+String accountId = ...
+String deviceNickname = ...
+
+EnrollmentRequest enrollmentRequest = createEnrollmentRequest(accountId, deviceNickname);
+enrollmentManager.startRegistration(enrollmentRequest, <span class="hljs-keyword">new</span> EnrollmentListener() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onDeviceActivationPending</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// device registration started, wait verification code</span>
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onDeviceRegistered</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// device registration (with verification done)</span>
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onEnrollmentDone</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// on biometric enrollment done, idcm enrollment successfully done</span>
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(VCKError error)</span> </span>{
+        <span class="hljs-comment">// fail</span>
+    }
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="get-account-info"></a><a href="#get-account-info" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get Account info</h4>
+<p>This API is used to retrieve the information of this account</p>
+<pre><code class="hljs css language-java">enrollmentManager.getAccountInfo(<span class="hljs-keyword">new</span> ApiListener&lt;AccountInfo&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(AccountInfo accountInfo)</span> </span>{
+        <span class="hljs-comment">// see javadoc for all available info</span>
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(VCKError error)</span> </span>{
+        <span class="hljs-comment">// handle error</span>
+    }
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="unenrollment-flow"></a><a href="#unenrollment-flow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unenrollment flow</h4>
+<p>Based on your needs, you can decide to unenroll all enrolled authenticators (Pin, Biometric and Face) or unenroll the enrire account from IDCM.</p>
+<p><img src="/mc-idcm-kit-android/State_flow.png" alt="My image"></p>
+<h5><a class="anchor" aria-hidden="true" id="unenroll-authenticatiors"></a><a href="#unenroll-authenticatiors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unenroll Authenticatiors</h5>
+<p>This API is used to remove the Authentication methods from the SDK</p>
+<pre><code class="hljs css language-java">enrollmentManager.unEnrollAuthenticators((FragmentActivity) <span class="hljs-keyword">this</span>.getActivity(), <span class="hljs-keyword">new</span> ApiListener&lt;Void&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(Void success)</span> </span>{
+        showMessage(<span class="hljs-string">"unEnroll success"</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(VCKError error)</span> </span>{
+        showMessage(<span class="hljs-string">"unEnroll fail: "</span> + error);
+    }
+});
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="unregister"></a><a href="#unregister" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unregister</h5>
+<p>This API is used to unregister the user from the system</p>
+<pre><code class="hljs css language-java">enrollmentManager.unregister(<span class="hljs-keyword">new</span> ApiListener&lt;Void&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(Void success)</span> </span>{
+
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(VCKError error)</span> </span>{
+
+    }
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="process-notification"></a><a href="#process-notification" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Process Notification</h4>
+<p>Process the incoming notification from IDCM. This API is used to complete the enrollment and unenrollment processes which requires to verify the data sent by Mastercard, via push notification.</p>
+<pre><code class="hljs css language-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> NotificationProcessResult <span class="hljs-title">processNotificationInternal</span><span class="hljs-params">(String from, IDCMNotification idcmNotification)</span> </span>{
+    <span class="hljs-keyword">switch</span> (idcmNotification.getType()){
+        <span class="hljs-keyword">case</span> VERIFY_DEVICE:
+        <span class="hljs-keyword">return</span> enrollmentManager.processNotification(idcmNotification);
+        
+        ...
+        
+        <span class="hljs-keyword">default</span>:
+            <span class="hljs-keyword">return</span> NotificationProcessResult.notHandled();
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="notification-manager"></a><a href="#notification-manager" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Notification Manager</h3>
+<p>This is the base interface to process notifications like verification code or tecnical sdk push. IDCM define 3 types of push:</p>
+<ul>
+<li><strong><em>VERIFY_DEVICE</em></strong>: used on enrollment flow to verify the device [Needs to be processed by NotificationManager].</li>
+<li><strong><em>SDK_PAYLOAD</em></strong>: technical push notification used in direct communication between IDC SDK (Mastercard) and MIS (Mastercard) [Needs to be processed by NotificationManager].</li>
+<li><strong><em>VERIFY_3DS</em></strong>: This type of notification contains a transaction that the user can authorize/ reject. The process via NotificationManager NOT mandatory. SDK in this case provide only the indication that a user action is required (USER_ACTION_REQUIRED).</li>
+</ul>
+<pre><code class="hljs css language-java">
+<span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onMessageReceived</span><span class="hljs-params">(@NonNull RemoteMessage remoteMessage)</span> </span>{
+    <span class="hljs-keyword">super</span>.onMessageReceived(remoteMessage);
+
+    NotificationProcessResult processResult = idcmClient.getNotificationManager()
+            .processNotification(remoteMessage.getFrom(), remoteMessage.getData());
+
+    <span class="hljs-keyword">if</span>(processResult.getStatus() == NotificationProcessResult.Status.NOT_HANDLED){
+        Timber.i(<span class="hljs-string">"Notification not handled: not an IDCM notification? "</span>);
+    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(processResult.getStatus() == NotificationProcessResult.Status.PROCESSING_STARTED){
+        Timber.i(<span class="hljs-string">"Notification processing started"</span>);
+    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(processResult.getStatus() == NotificationProcessResult.Status.USER_ACTION_REQUIRED){
+        Timber.i(<span class="hljs-string">"Notification user action required started"</span>);
+        IDCMNotification idcmNotification = processResult.getNotification();
+        IDCMNotification.Type type = idcmNotification.getType();<span class="hljs-comment">// VERIFY_3DS | VERIFY_DEVICE | SDK_PAYLOAD | UNKNOWN</span>
+        showNotificationIfNeeded(processResult);
+    }
+    <span class="hljs-keyword">else</span> {
+        Timber.e(processResult.getException(), <span class="hljs-string">"Notification error"</span>);
+    }
+}
+
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="device-manager"></a><a href="#device-manager" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Device Manager</h3>
+<p>This manager implements the APIs to retrieve the information about your enrolled device,
+like the DeviceNickname of the registration status, and to unregister your device from the MC system</p>
+<pre><code class="hljs css language-java">DeviceManager deviceManager = idcmClient.getDeviceManager();
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="get-device"></a><a href="#get-device" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get device</h4>
+<p>Get the enrolled device informations, like the Device Nickname, the status and the ID of the device</p>
+<pre><code class="hljs css language-java">deviceManager.getDevice(<span class="hljs-keyword">new</span> ApiListener&lt;EnrolledDevice&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(EnrolledDevice enrolledDevice)</span> </span>{
+        String deviceNickmane = enrolledDevice.getDeviceNickname();
+        String status = enrolledDevice.getStatus();
+        String id = enrolledDevice.getId();
+        <span class="hljs-comment">// do something</span>
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(VCKError error)</span> </span>{
+        <span class="hljs-comment">//handle error</span>
+    }
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="unregister-device"></a><a href="#unregister-device" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unregister device</h4>
+<p>This API unregisters the device from the MC system, it requires the Nickname of the device as a parameter</p>
+<pre><code class="hljs css language-java">deviceManager.unregisterDevice(deviceNickname, <span class="hljs-keyword">new</span> ApiListener&lt;Boolean&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(Boolean success)</span> </span>{
+
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(VCKError error)</span> </span>{
+        hideProgress();
+        showMessage(<span class="hljs-string">"unregisterDevice fail"</span> + error.toString());
+    }
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="card-manager"></a><a href="#card-manager" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Card Manager</h3>
+<p>With this class you can handle all operation related to the user cards:
+Every card enrollment is composed by 2 step: verifyCardHolder and addCard.
+The base implementation of verifyCardHolder return an Url that your app have to open in the browser, normally the user have to confirm using the web page (for example with a pre-authorization of a payment) that he is the real card holder of the card. When the flow is ended (you can use for example deep-linking to handle the return in app) you can call add card and complete the flow.</p>
+<pre><code class="hljs css language-java">CardManager cardManager = idcmClient.getCardManager();
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="get-cards"></a><a href="#get-cards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get Cards</h4>
+<p>This API retrieves the base list of the cards</p>
+<pre><code class="hljs css language-java">cardManager.getCards(<span class="hljs-keyword">new</span> ApiListener&lt;CardListOnDevice&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(CardListOnDevice success)</span> </span>{
+        ...
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(VCKError error)</span> </span>{
+        ...
+    }
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="get-provisioned-cards"></a><a href="#get-provisioned-cards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get provisioned Cards</h4>
+<p>This API retrieves the list of the provisioned cards. A provisioned card contains extra info like the list of all devices where this card is currently enrolled.</p>
+<pre><code class="hljs css language-java">cardManager.getProvisionedCards(<span class="hljs-keyword">new</span> ApiListener&lt;ProvisionedCardList&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(ProvisionedCardList result)</span> </span>{
+        List&lt;ProvisionedCard&gt; cards = result.getCards();
+        <span class="hljs-keyword">for</span>(ProvisionedCard card : cards){
+            List&lt;DeviceData&gt; devices = card.getDevices();
+            EnrolledCard enrolledCard = card.getEnrolledCard();
+            ...
+        }
+        ...
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(VCKError error)</span> </span>{
+        ...
+    }
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="delete-card"></a><a href="#delete-card" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Delete Card</h4>
+<p>This API is used to Delete a card, taking its card number as a parameter</p>
+<pre><code class="hljs css language-java">String cardNumber = <span class="hljs-string">"...."</span>
+
+cardManager.deleteCard(cardNumber, <span class="hljs-keyword">new</span> ApiListener&lt;Void&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(Void success)</span> </span>{
+        <span class="hljs-comment">// card deleted from this device</span>
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(VCKError error)</span> </span>{
+        ...
+    }
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="verify-card-holder"></a><a href="#verify-card-holder" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Verify Card Holder</h4>
+<p>This API is used to verify the card holder of a card. This operation is a precondition for the addCard api.
+In some cases your backend can pre-authorize the enrollment (for example because you have just validated your cardHolder identity previously for this card).
+The card number, the expiration and the account type are required parameter for this API.</p>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">final</span> String cardNumber = <span class="hljs-string">"..."</span>;
+String expiryDate = <span class="hljs-string">"..."</span>;
+String accountType = <span class="hljs-string">"..."</span>;
+String accountIdentifier = <span class="hljs-string">"..."</span>;
+
+cardManager.verifyCardHolder(cardNumber, expiryDate, accountType, accountIdentifier, <span class="hljs-keyword">new</span> ApiListener&lt;VerifyCardHolderResponse&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(VerifyCardHolderResponse success)</span> </span>{
+        String id = success.getTransactionId();
+        String verificationType = success.getVerificationType();
+        String redirectUrl = success.getRedirectUrl();
+        <span class="hljs-keyword">if</span>(isExternalPaymentVerification(verificationType)){
+            handleCvmContext(id, verificationType, redirectUrl, cardNumber);
+            openWebPage(redirectUrl);
+        }<span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> UnsupportedOperationException(<span class="hljs-string">"No other verification supported yet"</span>);
+        }
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(VCKError error)</span> </span>{
+        ...
+    }
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="add-card"></a><a href="#add-card" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add Card</h4>
+<p>This API is used to add a new card that is already verified (cardHolder verification) for the user. This api completes the card enrollment flow</p>
+<pre><code class="hljs css language-java">String cardNumber = <span class="hljs-string">""</span>;
+
+cardManager.addCard(cardNumber, <span class="hljs-keyword">new</span> ApiListener&lt;EnrolledCard&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(EnrolledCard success)</span> </span>{
+        removeFromCache(id);
+        listener.onSuccess(success);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(VCKError error)</span> </span>{
+        removeFromCache(id);
+        listener.onFail(error);
+    }
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="transaction-manager"></a><a href="#transaction-manager" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transaction Manager</h3>
+<p>Transaction manager allows the app to retrieve, authorize or reject a transaction.
+Authorization of a transaction is a process that start with a push incoming on the device or a selection
+of a pending transaction form a list (received with getTransaction).</p>
+<pre><code class="hljs css language-java">TransactionManager transactionManager  = idcmClient.getTransactionManager();
+</code></pre>
+<pre><code class="hljs css language-java"><span class="hljs-comment">//Sample of read transaction info from IDCMNotification</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">checkActionRequired</span><span class="hljs-params">(NotificationProcessResult processResult)</span></span>{
+    IDCMNotification idcmNotification = processResult.getNotification();
+    IDCMNotification.Type type = idcmNotification.getType();
+    <span class="hljs-keyword">if</span>(type == IDCMNotification.Type.VERIFY_3DS){
+        IDCMTransaction transaction = <span class="hljs-keyword">new</span> IDCMTransactionReader().read(idcmNotification);
+        handleIncomingTransaction(transaction);
+    }
+    ...
+}
+
+<span class="hljs-comment">// alternativelly you can extract data and create IDCMTransaction as you want</span>
+
+</code></pre>
+<p><img src="/mc-idcm-kit-android/Transaction_flow.png" alt="My image"></p>
+<h4><a class="anchor" aria-hidden="true" id="get-transactions"></a><a href="#get-transactions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get Transactions</h4>
+<p>This API is used to retrieve the list of the transactions</p>
+<pre><code class="hljs css language-java">TransactionFilterParams filters = getMyFilters(); <span class="hljs-comment">// or new TransactionFilterParams() for defaults</span>
+</code></pre>
+<p>With a filters, you can require a page of transactions</p>
+<pre><code class="hljs css language-java">transactionManager.getTransactions(filters , <span class="hljs-keyword">new</span> ApiListener&lt;TransactionsPage&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(TransactionsPage transactionPage)</span> </span>{
+        <span class="hljs-keyword">int</span> pageNumber = transactionPage.getPage();
+        <span class="hljs-keyword">int</span> size = transactionPage.getSize();
+        List&lt;TransactionInfo&gt; transactions = transactionPage.getTransactions();
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(VCKError error)</span> </span>{
+        Timber.e(<span class="hljs-string">"onFail: %s"</span>,error);
+    }
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="authorize-transaction"></a><a href="#authorize-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorize Transaction</h4>
+<p>In order to authorize a transaction, (received from a push or downloaded by getTransactions) you have to use the <strong><em>authorizeTransaction</em></strong>.
+This API  requires the transaction informations and the tenant account id as parameters.</p>
+<pre><code class="hljs css language-java">
+Activity activity = getActivity();
+
+transactionManager.authorizeTransaction(transaction, mLocalStatus.getUsername(), activity, <span class="hljs-keyword">new</span> AuthorizationListener() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAuthorizationDone</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// Transaction has been autorized</span>
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(VCKError error)</span> </span>{
+
+    }
+});
+
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="reject-transaction"></a><a href="#reject-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Reject transaction</h4>
+<p>This API is used to reject a pending transaction. The transaction id and the tenant account id are required parameter.
+You can also use the isFraud flag to mark the transaction that you are rejecting as a suspicious fraud.</p>
+<pre><code class="hljs css language-java">String transactionId = ...
+String tenantAccountId  = ...
+<span class="hljs-keyword">boolean</span> isFraud = ...
+
+transactionManager.rejectTransaction(transactionId, tenantAccountId, isFraud, <span class="hljs-keyword">new</span> ApiListener&lt;Void&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(Void success)</span> </span>{
+        Timber.i(<span class="hljs-string">"rejectTransaction success"</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(VCKError error)</span> </span>{
+        Timber.e(<span class="hljs-string">"rejectTransaction fail: %s"</span>,error.toString());
+    }
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="processnotification"></a><a href="#processnotification" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ProcessNotification</h4>
+<p>Process the incoming notification from IDCM. This API is used to complete the authorization and rejection processes which requires to verify the data sent by Mastercard, via push notification.</p>
+<pre><code class="hljs css language-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> NotificationProcessResult <span class="hljs-title">processNotificationInternal</span><span class="hljs-params">(String from, IDCMNotification idcmNotification)</span> </span>{
+    <span class="hljs-keyword">switch</span> (idcmNotification.getType()){
+        <span class="hljs-keyword">case</span> VERIFY_3DS:
+            <span class="hljs-keyword">return</span> transactionManager.processNotification(idcmNotification);
+        
+        ...
+        
+        <span class="hljs-keyword">default</span>:
+            <span class="hljs-keyword">return</span> NotificationProcessResult.notHandled();
+    }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="errors"></a><a href="#errors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Errors</h2>
+<p>In this section we will present a list of errors that can be thrown by the SDK, explaining the cause of errors briefly.</p>
+<p><strong>INVALID_ACTIVITY_CONTEXT</strong></p>
+<p>Thrown when the activity context is not valid</p>
+<p>Error code: INVALID_ACTIVITY_CONTEXT</p>
+<p><strong>INVALID_IDC_SDK_DATA</strong></p>
+<p>Thrown when the data from the sdk is not valid</p>
+<p>Error code: INVALID_IDC_SDK_DATA</p>
+<p><strong>INVALID_JSON</strong></p>
+<p>Thrown when the JSON is not valid</p>
+<p>Error code: INVALID_JSON</p>
+<p><strong>ILLEGAL_PARAMETER</strong></p>
+<p>Thrown when a parameter is not valid</p>
+<p>Error code: ILLEGAL_PARAMETER_ERROR</p>
+<p><strong>FACE_AUTHENTICATOR_TIME_OUT</strong></p>
+<p>Thrown on face authenticator's timeout</p>
+<p>Error code: IDC_12020</p>
+<p><strong>VOICE_AUTHENTICATOR_TIME_OUT</strong></p>
+<p>Thrown on voice authenticator's timeout</p>
+<p>Error code: IDC_13020</p>
+<p><strong>OPERATION_CANCLED</strong></p>
+<p>Thrown when the user canceled the operation</p>
+<p>Error code: IDC_100</p>
+<p><strong>INVALID_CODE</strong></p>
+<p>Thrown when the code is not valid</p>
+<p>Error code: IDC_-1</p>
+<p><strong>NO_INTERNET_ERROR_CODE</strong></p>
+<p>Thrown when the operation failed due to missing internet connection</p>
+<p>Error code: IDC_-200</p>
+<p><strong>SERVER_UNAVAILABLE</strong></p>
+<p>Thrown when the server is not responding</p>
+<p>Error code: IDC_-201</p>
+<p><strong>INVALID_DATA_ERROR</strong></p>
+<p>Thrown when the data passed to the sdk in not valid</p>
+<p>Error code: IDC_1051</p>
+<p><strong>ROOT_DETECTED</strong></p>
+<p>Thrown when the device has been detected as rooted, the sdk cannot run on rooted devices or emulator for security reasons</p>
+<p>Error code: IDC_1054</p>
+<p><strong>UNSUPPORTED_APP_VERSION_LOCAL</strong></p>
+<p>Thrown when the configured version of the app is not supported</p>
+<p>Error code: IDC_1055</p>
+<p><strong>NO_OFFLINE_TRANSACTION</strong></p>
+<p>Thrown when the authorization of transaction offline is not allowed by configuration</p>
+<p>Error code: IDC_1056</p>
+<p><strong>OFFLINE_TEMPLATES_NOT_AVAILABLE</strong></p>
+<p>Thrown when offline templates are not available</p>
+<p>Error code: IDC_1008</p>
+<p><strong>FINGERPRINT_CHANGED</strong></p>
+<p>Thrown when the fingerprint enrolled to authorize transaction has been changed</p>
+<p>Error code: IDC_255</p>
+<p><strong>AUTHENTICATOR_ACCESS_DENIED</strong></p>
+<p>Thrown when the access to a specific authenticator (voice, face or fingerprint) has been denied for security reasons</p>
+<p>Error code: IDC_12</p>
+<p><strong>DEVICE_DISABLED</strong></p>
+<p>Thrown when the device is currently disabled</p>
+<p>Error code: IDC_4405</p>
+<p><strong>DECRYPTION_FAILED_ON_MIS</strong></p>
+<p>Thrown when the decryption of the payload received by the MIS has failed</p>
+<p>Error code: IDC_4403</p>
+<p><strong>CHANNEL_CLOSED</strong></p>
+<p>Thrown when the communication channel has closed</p>
+<p>Error code: IDC_4406</p>
+<p><strong>TRANSACTION_EXPIRED</strong></p>
+<p>Thrown when the transaction has expired</p>
+<p>Error code: IDC_4302</p>
+<p><strong>OPERATION_CANCELED_BY_SYSTEM</strong></p>
+<p>Thrown when the operative system has closed the operation. for example when the user puts the app in background while the biometric authentication is prompted</p>
+<p>Error code: IDC_4090</p>
+<p><strong>WRONG_PIN</strong></p>
+<p>Thrown when the inserted pin does not match</p>
+<p>Error code: IDC_10010</p>
+<p><strong>FINGERPRINT_NOT_RECOGNIZER</strong></p>
+<p>Thrown when the fingerprint has not being recognized</p>
+<p>Error code: IDC_11010</p>
+<p><strong>NO_FINGERPRINT_AVAILABLE</strong></p>
+<p>Thrown when the fingerprint is not available on the device</p>
+<p>Error code: IDC_11020</p>
+<p><strong>CAMERA_PERMISSION_REQUIRED</strong></p>
+<p>Thrown when the app is missing the camera permission, mandatory to use the face authentication</p>
+<p>Error code: IDC_12040</p>
+<p><strong>TRANSACTION_VERIFIED</strong></p>
+<p>Notifies that the transaction is successfully verified</p>
+<p>Error code: IDC_2001</p>
+<p><strong>TRANSACTION_DECLINED</strong></p>
+<p>Notifies that the transaction is marked as &quot;DECLINED&quot;</p>
+<p>Error code: IDC_2002</p>
+<p><strong>TRANSACTION_FRAUD</strong></p>
+<p>Notifies that the transaction is marked as &quot;FRAUD&quot;</p>
+<p>Error code: IDC_2003</p>
+<p><strong>TRANSACTION_NOT_FOUND</strong></p>
+<p>Notifies that no transaction records have been found</p>
+<p>Error code: IDC_2004</p>
+<p><strong>CHOOSE_NICKNAME</strong></p>
+<p>Notifies that the user needs to choose the device nickname</p>
+<p>Error code: IDC_2101</p>
+<p><strong>CHOOSE_BIOMETRICS</strong></p>
+<p>Notifies that the user needs to choose the biometry</p>
+<p>Error code: IDC_2103</p>
+<p><strong>PUSH_TOKEN_UPDATE_FAILED</strong></p>
+<p>Thrown when the update of push token has failed</p>
+<p>Error code: IDC_2104</p>
+<p><strong>ACTIVATION_CODE_INVALID</strong></p>
+<p>Thrown when the activation code is invalid</p>
+<p>Error code: IDC_3101</p>
+<p><strong>DEVICE_FINGERPRINT_INVALID</strong></p>
+<p>Thrown when the device fingerprint is invalid</p>
+<p>Error code: IDC_3102</p>
+<p><strong>DEVICE_CAPABILITY_INVALID</strong></p>
+<p>Thrown when the device is missing some capabilities</p>
+<p>Error code: IDC_3103</p>
+<p><strong>PUSH_TOKEN_INVALID</strong></p>
+<p>Thrown when the push token is invalid</p>
+<p>Error code: IDC_3104</p>
+<p><strong>DEVICE_NOT_SUPPORTED</strong></p>
+<p>Thrown when the device is not supported</p>
+<p>Error code: IDC_3105</p>
+<p><strong>DEVICE_NICKNAME_INVALID</strong></p>
+<p>Thrown when the device nickname is invalid</p>
+<p>Error code: IDC_3106</p>
+<p><strong>DEVICE_VERIFICATION_CODE_INVALID</strong></p>
+<p>Thrown when the device verification code is invalid</p>
+<p>Error code: IDC_3107</p>
+<p><strong>INVALID_AAD_DATA</strong></p>
+<p>Thrown when an invalid AAD data is processed</p>
+<p>Error code: IDC_3108</p>
+<p><strong>INVALID_DEVICE_INFO</strong></p>
+<p>Thrown when occurs an invalid Nickname, Language, Phone type and status combination</p>
+<p>Error code: IDC_3109</p>
+<p><strong>DEVICE_REGISTERED_PREVIOUSLY</strong></p>
+<p>Thrown when the device has been already registered previously</p>
+<p>Error code: IDC_3110</p>
+<p><strong>EXCEEDED_MAX_ACTIVATION_ATTEMPTS</strong></p>
+<p>Thrown when the maximum activation attempts have been reached</p>
+<p>Error code: IDC_3111</p>
+<p><strong>HARDWARE_NOT_SUPPORTED</strong></p>
+<p>Thrown when the hardware is not supported</p>
+<p>Error code: IDC_3112</p>
+<p><strong>DEVICE_NOT_FOUND</strong></p>
+<p>Thrown when device has not been found</p>
+<p>Error code: IDC_3115</p>
+<p><strong>INVALID_DEVICE_NICKNAME</strong></p>
+<p>Thrown when the device nickname is invalid</p>
+<p>Error code: IDC_3116</p>
+<p><strong>DEVICE_PREVIOUSLY_DISABLED</strong></p>
+<p>Thrown when the device has been previously disabled</p>
+<p>Error code: IDC_3117</p>
+<p><strong>DEVICE_ALREADY_VERIFIED</strong></p>
+<p>Thrown when the device has already been verified</p>
+<p>Error code: IDC_3118</p>
+<p><strong>INVALID_SECURE_RANDOM_DATA</strong></p>
+<p>Thrown when the secure random data is invalid</p>
+<p>Error code: IDC_3120</p>
+<p><strong>INVALID_TENANT_ACCOUNT_ID</strong></p>
+<p>Thrown when the tenant account id is invalid</p>
+<p>Error code: IDC_3151</p>
+<p><strong>TENANT_NOT_FOUND</strong></p>
+<p>Thrown when the tenant account has not been found</p>
+<p>Error code: IDC_3154</p>
+<p><strong>UNSUPPORTED_MODALITY</strong></p>
+<p>Thrown when the biometric modality is not supported</p>
+<p>Error code: IDC_3202</p>
+<p><strong>INVALID_VERIFICATION_STATUS</strong></p>
+<p>Thrown when the verification status is invalid</p>
+<p>Error code: IDC_3204</p>
+<p><strong>ASSURANCE_LEVEL_NOT_AVAILABLE</strong></p>
+<p>Thrown when the assurance level is not available</p>
+<p>Error code: IDC_3206</p>
+<p><strong>FIDO_CHALLENGE_NOT_FOUND</strong></p>
+<p>Thrown when the FIDO enrollment challenge has not been found</p>
+<p>Error code: IDC_3207</p>
+<p><strong>FIDO_CHALLENGE_EXPIRED</strong></p>
+<p>Thrown when the FIDO enrollment challenge expires</p>
+<p>Error code: IDC_3208</p>
+<p><strong>MISSING_SDK_INFO</strong></p>
+<p>Thrown when Some SDK info is missing</p>
+<p>Error code: IDC_3501</p>
+<p><strong>INVALID_SDK_VERSION</strong></p>
+<p>Thrown when the SDK version is not valid</p>
+<p>Error code: IDC_3502</p>
+<p><strong>MISSING_SDK_VERSION</strong></p>
+<p>Thrown when the SDK version is missing</p>
+<p>Error code: IDC_3503</p>
+<p><strong>MISSING_OS_VERSION</strong></p>
+<p>Thrown when the OS version is missing</p>
+<p>Error code: IDC_3504</p>
+<p><strong>INVALID_OS_VERSION</strong></p>
+<p>Thrown when the OS version is invalid</p>
+<p>Error code: IDC_3505</p>
+<p><strong>INVALID_APP_VERSION</strong></p>
+<p>Thrown when the App version is invalid</p>
+<p>Error code: IDC_3506</p>
+<p><strong>INVALID_APP_INFO</strong></p>
+<p>Thrown when the App infos are invalid</p>
+<p>Error code: IDC_3507</p>
+<p><strong>MISSING_APP_VERSION</strong></p>
+<p>Thrown when the App version is missing</p>
+<p>Error code: IDC_3508</p>
+<p><strong>MISSING_APP_INFO</strong></p>
+<p>Thrown when the App infos are missing</p>
+<p>Error code: IDC_3509</p>
+<p><strong>MISSING_PHONE_TYPE</strong></p>
+<p>Thrown when the Phone type is missing</p>
+<p>Error code: IDC_3510</p>
+<p><strong>MISSING_MODEL_TYPE</strong></p>
+<p>Thrown when the device model type is missing</p>
+<p>Error code: IDC_3511</p>
+<p><strong>INVALID_MODEL_INFO</strong></p>
+<p>Thrown when the model informations are invalid</p>
+<p>Error code: IDC_3512</p>
+<p><strong>MODEL_NOT_SUPPORTED</strong></p>
+<p>Thrown when the model is not supported</p>
+<p>Error code: IDC_3513</p>
+<p><strong>OLD_OS_VERSION</strong></p>
+<p>Thrown when the OS version is too old</p>
+<p>Error code: IDC_3514</p>
+<p><strong>OLD_SDK_VERSION</strong></p>
+<p>Thrown when the SDK version is too old</p>
+<p>Error code: IDC_3515</p>
+<p><strong>OLD_APP_VERSION</strong></p>
+<p>Thrown when the App version is too old</p>
+<p>Error code: IDC_3516</p>
+<p><strong>APP_INFO_INVALID</strong></p>
+<p>Thrown when the App informations are invalid</p>
+<p>Error code: IDC_3517</p>
+<p><strong>MISSING_DEVICE_SCREEN_WIDTH</strong></p>
+<p>Thrown when the device screen width is missing</p>
+<p>Error code: IDC_3518</p>
+<p><strong>MISSING_DEVICE_SCREEN_HEIGHT</strong></p>
+<p>Thrown when the device screen height is missing</p>
+<p>Error code: IDC_3519</p>
+<p><strong>INVALID_LANGUAGE_INDICATOR</strong></p>
+<p>Thrown when the language indicator is invalid</p>
+<p>Error code: IDC_3520</p>
+<p><strong>INVALID_SDK_INFO</strong></p>
+<p>Thrown when the SDK infos are invalid</p>
+<p>Error code: IDC_3525</p>
+<p><strong>DEVICE_CANNOT_BE_DISABLED</strong></p>
+<p>Thrown when the device cannot be disabled</p>
+<p>Error code: IDC_4101</p>
+<p><strong>DEVICE_LIMIT_REACHED</strong></p>
+<p>Thrown when the maximum number of registered devices has been reached</p>
+<p>Error code: IDC_4102</p>
+<p><strong>ACTIVATION_CODE_ALREADY_USED</strong></p>
+<p>Thrown when the activation code has already been used</p>
+<p>Error code: IDC_4103</p>
+<p><strong>ACTIVATION_CODE_IS_EXPIRED</strong></p>
+<p>Thrown when the activation code has expired</p>
+<p>Error code: IDC_4104</p>
+<p><strong>DEVICE_NOT_ENROLLED</strong></p>
+<p>Thrown when the device is not enrolled</p>
+<p>Error code: IDC_4105</p>
+<p><strong>CANNOT_ACTIVATE_ACCOUNT</strong></p>
+<p>Thrown when the Account cannot be activated</p>
+<p>Error code: IDC_4151</p>
+<p><strong>CANNOT_REGISTER_ACCOUNT</strong></p>
+<p>Thrown when the Account cannot be registered</p>
+<p>Error code: IDC_4152</p>
+<p><strong>CANNOT_RE_REGISTER_ACCOUNT</strong></p>
+<p>Thrown when the Account cannot be re-registered</p>
+<p>Error code: IDC_4153</p>
+<p><strong>ACCOUNT_NOT_ENROLLED</strong></p>
+<p>Thrown when the Account is not enrolled</p>
+<p>Error code: IDC_4154</p>
+<p><strong>SERVER_AUTH_ERROR</strong></p>
+<p>Thrown when the server is unable to authenticate the transaction</p>
+<p>Error code: IDC_4212</p>
+<p><strong>SERVER_ENROLL_BIOMETRICS_ERROR</strong></p>
+<p>Thrown when the server is unable to enroll biometrics</p>
+<p>Error code: IDC_4213</p>
+<p><strong>BIOMETRY_NOT_RECOGNIZED</strong></p>
+<p>Thrown when the biometry has not have been recognized</p>
+<p>Error code: IDC_4214</p>
+<p><strong>TRANSACTION_EXPIRED_PENDING_VERIFICATION</strong></p>
+<p>Thrown when transaction has expired with verification pending</p>
+<p>Error code: IDC_4301</p>
+<p><strong>TRANSACTION_ABANDONED</strong></p>
+<p>Thrown when the transaction has been abandoned</p>
+<p>Error code: IDC_4304</p>
+<p><strong>DECRYPTION_FAILED</strong></p>
+<p>Thrown when the decryption has failed</p>
+<p>Error code: IDC_4403</p>
+<p><strong>JSON_FORMAT_CONVERSION</strong></p>
+<p>Thrown when the JSON format conversion failed</p>
+<p>Error code: IDC_4404</p>
+<p><strong>TRANSACTION_SYSTEM_ERROR</strong></p>
+<p>Thrown when an error has occurred on the system while processing a transaction</p>
+<p>Error code: IDC_5002</p>
+<p><strong>UNKNOWN_OPERATION</strong></p>
+<p>Thrown when an unknown operation has been invoked</p>
+<p>Error code: IDC_5003</p>
+<p><strong>NO_INTERNET_CONNECTION</strong></p>
+<p>Thrown when the network connection is missing</p>
+<p>Error code: IDC_4080</p>
+<p><strong>REGISTRATION_PIN_NULL</strong></p>
+<p>Thrown when Headless PIN Registration was null. This is used by developer implementing Headless PIN.</p>
+<p>Error code: IDC_10020</p>
+<p><strong>AUTHENTICATION_PIN_NULL</strong></p>
+<p>Thrown when Headless PIN Authentication was null. This is used by developer implementing Headless PIN.</p>
+<p>Error code: IDC_10030</p>
+<p><strong>REGISTRATION_PIN_INVALID</strong></p>
+<p>Thrown when Headless PIN Registration was invalid. This is used by developer implementing Headless PIN.</p>
+<p>Error code: IDC_10040</p>
+<p><strong>AUTHENTICATION_PIN_INVALID</strong></p>
+<p>Thrown when Headless PIN Authentication was invalid. This is used by developer implementing Headless PIN.</p>
+<p>Error code: IDC_10050</p>
+<p><strong>FINGERPRINT_LOCKED_OUT</strong></p>
+<p>Thrown when there were 5 Fingerprint failures in a row within a certain amount of time.</p>
+<p>Error code: IDC_11030</p>
+<p><strong>FINGERPRINT_LOCKED_OUT_PERM</strong></p>
+<p>Thrown when there were more fingerprint failures after the first lockout so the fingerprint reader is permanently locked.</p>
+<p>Error code: IDC_11040</p>
+<p><strong>GENERIC_AUTH_ERROR</strong></p>
+<p>Thrown when a generic face authentication failure occurs</p>
+<p>Error code: IDC_12010</p>
+<p><strong>AUTH_TIMED_OUT</strong></p>
+<p>Thrown when the face registration or authentication timed out.</p>
+<p>Error code: IDC_12020</p>
+<p><strong>EXTERNAL_AUTH_FAIL</strong></p>
+<p>Thrown when the face registration or authentication failed due to Sensory returning this error code.</p>
+<p>Error code: IDC_12030</p>
+<p><strong>FACE_NOT_ENROLLED</strong></p>
+<p>Thrown when no face is registered on the device</p>
+<p>Error code: IDC_12050</p>
+<p><strong>CAMERA_NOT_AVAILABLE</strong></p>
+<p>Thrown when the physical hardware is not available on the device.</p>
+<p>Error code: IDC_12060</p>
+<p><strong>NOT_ENOUGH_STORAGE</strong></p>
+<p>Thrown when the there's not enough storage available on device.</p>
+<p>Error code: IDC_12070</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#intro">Intro</a></li><li><a href="#setup-environment">Setup Environment</a><ul class="toc-headings"><li><a href="#dependencies">Dependencies</a></li></ul></li><li><a href="#getting-started">Getting Started</a><ul class="toc-headings"><li><a href="#initialization">Initialization</a></li><li><a href="#enrollment">Enrollment</a></li><li><a href="#notification-manager">Notification Manager</a></li><li><a href="#device-manager">Device Manager</a></li><li><a href="#card-manager">Card Manager</a></li><li><a href="#transaction-manager">Transaction Manager</a></li></ul></li><li><a href="#errors">Errors</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/fabrick.svg" alt="Vipera Cloud Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Vipera / Fabrick</section></footer></div></body></html>
