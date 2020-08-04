@@ -86,27 +86,37 @@
 <h4><a class="anchor" aria-hidden="true" id="idcm-kit"></a><a href="#idcm-kit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Idcm kit</h4>
 <pre><code class="hljs css language-groovy">    implementation <span class="hljs-string">'androidx.appcompat:appcompat:1.1.0'</span>
 
-    <span class="hljs-keyword">def</span> cloudKitVersion = <span class="hljs-string">"0.1.8"</span>
+    <span class="hljs-keyword">def</span> cloudKitVersion = <span class="hljs-string">"0.2.1"</span>
     implementation <span class="hljs-string">"com.vipera.cloud.client:cloudkit-core:${cloudKitVersion}"</span>
 
     <span class="hljs-comment">//idcm kit</span>
-    <span class="hljs-keyword">def</span> idcmKitVersion = <span class="hljs-string">"0.4.1"</span>
+    <span class="hljs-keyword">def</span> idcmKitVersion = <span class="hljs-string">"1.0.0-rc0"</span>
     implementation <span class="hljs-string">"com.vipera.cloud.client:idcm:${idcmKitVersion}"</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="mastercard-local-libs"></a><a href="#mastercard-local-libs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MasterCard local libs</h4>
 <p>You can download MasterCard local libs <a href="/mc-idcm-kit-android/localLibs/MC_LocalLibs.zip">here</a></p>
 <p>Once you have imported the libraries in your project you need to configure your gradle file as follows:</p>
 <pre><code class="hljs css language-groovy">    <span class="hljs-comment">// IDCM libs</span>
-    api(<span class="hljs-string">name:</span> <span class="hljs-string">'IDCM-fido-client-sdk-3.1.0'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
-    api(<span class="hljs-string">name:</span> <span class="hljs-string">'IDCM-fido-utils-3.1.0'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    api(<span class="hljs-string">name:</span> <span class="hljs-string">'IDCM-fido-client-sdk-3.3.0'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    api(<span class="hljs-string">name:</span> <span class="hljs-string">'IDCM-fido-utils-3.3.0'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
     api(<span class="hljs-string">name:</span> <span class="hljs-string">'mtpjose'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
 
+    <span class="hljs-comment">// RxAndroid</span>
+    implementation <span class="hljs-string">group:</span> <span class="hljs-string">'io.reactivex.rxjava2'</span>, <span class="hljs-string">name:</span> <span class="hljs-string">'rxandroid'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">'2.0.2'</span>
+    implementation <span class="hljs-string">group:</span> <span class="hljs-string">'io.reactivex.rxjava2'</span>, <span class="hljs-string">name:</span> <span class="hljs-string">'rxjava'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">'2.1.12'</span>
+    implementation <span class="hljs-string">'javax.annotation:jsr250-api:1.0'</span>
+
+    <span class="hljs-comment">// Retrofit</span>
+    implementation <span class="hljs-string">'com.squareup.retrofit2:retrofit:2.4.0'</span>
+    implementation <span class="hljs-string">'com.squareup.retrofit2:converter-gson:2.4.0'</span>
+    implementation <span class="hljs-string">'com.squareup.retrofit2:adapter-rxjava2:2.4.0'</span>
+    implementation <span class="hljs-string">'com.squareup.okhttp3:logging-interceptor:3.9.0'</span>
+
     <span class="hljs-comment">// HYPR ADP libs</span>
-    <span class="hljs-keyword">def</span> HyprVersion = <span class="hljs-string">"4.2.4"</span>
-    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'HyprCommonAdp'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"${HyprVersion}"</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
-    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'HyprFingerprintAdp'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"${HyprVersion}"</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
-    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'HyprFaceVoiceAdp'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"${HyprVersion}"</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
-    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'HyprPinAdp'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"${HyprVersion}"</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'HyprCommonAdp'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">'4.2.6'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'HyprFingerprintAdp'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">'4.2.6'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'HyprFaceVoiceAdp'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">'4.2.6'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
+    implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'HyprPinAdp'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">'4.2.6'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
 
     <span class="hljs-comment">// Sensory libs</span>
     implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'vvutils'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"4.1.2.4"</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
@@ -116,12 +126,15 @@
     implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'model'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"2.1.0"</span>, <span class="hljs-string">classifier:</span> <span class="hljs-string">'face-pnn'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
     implementation(<span class="hljs-string">name:</span> <span class="hljs-string">'model'</span>, <span class="hljs-string">version:</span> <span class="hljs-string">"2.1.0"</span>, <span class="hljs-string">classifier:</span> <span class="hljs-string">'voice-tssv-udp_enUS'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>)
 
+
     <span class="hljs-comment">// Integration libs (per project / app / packageName)</span>
-    api(<span class="hljs-string">name:</span> <span class="hljs-string">'TeeClient-2.2.8'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>) { transitive = <span class="hljs-literal">true</span> }
-    api(<span class="hljs-string">name:</span> <span class="hljs-string">'caCrypto-2.2.8'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>) { transitive = <span class="hljs-literal">true</span> }
-    api(<span class="hljs-string">name:</span> <span class="hljs-string">'THPAgent-2.2.8'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>) { transitive = <span class="hljs-literal">true</span> }
-    api(<span class="hljs-string">name:</span> <span class="hljs-string">'crypto-2.2.8'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>) { transitive = <span class="hljs-literal">true</span> }
+    api(<span class="hljs-string">name:</span> <span class="hljs-string">'TeeClient-3.5.0'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>) { transitive = <span class="hljs-literal">true</span> }
+    api(<span class="hljs-string">name:</span> <span class="hljs-string">'caCrypto-3.5.0'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>) { transitive = <span class="hljs-literal">true</span> }
+    api(<span class="hljs-string">name:</span> <span class="hljs-string">'THPAgent-3.5.0'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>) { transitive = <span class="hljs-literal">true</span> }
+    api(<span class="hljs-string">name:</span> <span class="hljs-string">'crypto-3.5.0'</span>, <span class="hljs-string">ext:</span> <span class="hljs-string">'aar'</span>) { transitive = <span class="hljs-literal">true</span> }
 </code></pre>
+<h4><a class="anchor" aria-hidden="true" id="javadoc"></a><a href="#javadoc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Javadoc</h4>
+<p>You can find the Javadoc <a href="/mc-idcm-kit-android/javadoc_idcm_kit_1.0.0-rc0.zip">here</a></p>
 <h2><a class="anchor" aria-hidden="true" id="getting-started"></a><a href="#getting-started" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting Started</h2>
 <h3><a class="anchor" aria-hidden="true" id="initialization"></a><a href="#initialization" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Initialization</h3>
 <pre><code class="hljs css language-java">IDCMService idcmClient = <span class="hljs-keyword">new</span> IDCMLibraryInitializer(<span class="hljs-keyword">this</span>)
@@ -318,13 +331,29 @@ like the DeviceNickname of the registration status, and to unregister your devic
 <pre><code class="hljs css language-java">deviceManager.unregisterDevice(deviceNickname, <span class="hljs-keyword">new</span> ApiListener&lt;Boolean&gt;() {
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(Boolean success)</span> </span>{
-
+        <span class="hljs-comment">//handle success</span>
     }
 
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(VCKError error)</span> </span>{
-        hideProgress();
+        <span class="hljs-comment">//handle failure</span>
         showMessage(<span class="hljs-string">"unregisterDevice fail"</span> + error.toString());
+    }
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="unregister-devices"></a><a href="#unregister-devices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unregister devices</h4>
+<p>This API unregisters a list of devices from the MC system, it requires a list of devices' Nickname as parameter.</p>
+<pre><code class="hljs css language-java">List&lt;String&gt; deviceNicknameList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(Arrays.asList(<span class="hljs-string">"deviceNickname1"</span>,<span class="hljs-string">"deviceNickname2"</span>,<span class="hljs-string">"deviceNickname3"</span>));
+getIDCMService().getDeviceManager().unregisterDevices(deviceNicknameList, <span class="hljs-keyword">new</span> ApiListener&lt;Boolean&gt;() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(Boolean success)</span> </span>{
+        <span class="hljs-comment">//handle success</span>
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFail</span><span class="hljs-params">(VCKError error)</span> </span>{
+        <span class="hljs-comment">//handle failure</span>
+        showMessage(<span class="hljs-string">"unregisterDevices fail"</span> + error.toString());
     }
 });
 </code></pre>
@@ -355,7 +384,7 @@ The base implementation of verifyCardHolder return an Url that your app have to 
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(ProvisionedCardList result)</span> </span>{
         List&lt;ProvisionedCard&gt; cards = result.getCards();
         <span class="hljs-keyword">for</span>(ProvisionedCard card : cards){
-            List&lt;DeviceData&gt; devices = card.getDevices();
+            List&lt;RelativeDeviceData&gt; devices = card.getDevices();
             EnrolledCard enrolledCard = card.getEnrolledCard();
             ...
         }
@@ -494,10 +523,11 @@ transactionManager.authorizeTransaction(transaction, mLocalStatus.getUsername(),
 <p>This API is used to reject a pending transaction. The transaction id and the tenant account id are required parameter.
 You can also use the isFraud flag to mark the transaction that you are rejecting as a suspicious fraud.</p>
 <pre><code class="hljs css language-java">String transactionId = ...
+String transactionAuthType = ...
 String tenantAccountId  = ...
 <span class="hljs-keyword">boolean</span> isFraud = ...
 
-transactionManager.rejectTransaction(transactionId, tenantAccountId, isFraud, <span class="hljs-keyword">new</span> ApiListener&lt;Void&gt;() {
+transactionManager.rejectTransaction(transactionId, transactionAuthType, tenantAccountId, isFraud, <span class="hljs-keyword">new</span> ApiListener&lt;Void&gt;() {
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(Void success)</span> </span>{
         Timber.i(<span class="hljs-string">"rejectTransaction success"</span>);
